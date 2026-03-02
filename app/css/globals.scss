@@ -12,7 +12,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #0d1224;
+  background-color: #0f0a1e;
 }
 
 #sticky-card-1 {
@@ -34,4 +34,358 @@ body {
 .sticky-card {
   // padding-top: calc(var(--index) * 2.5rem);
   top: calc(var(--index) * 4rem);
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────────── */
+
+.navbar-glass {
+  background: rgba(15, 10, 30, 0.7);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(255, 107, 157, 0.08);
+}
+
+/* Gradient logo text */
+.navbar-logo {
+  background: linear-gradient(135deg, #ff6b9d 0%, #ffd166 50%, #ff4757 100%);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: logo-gradient-shift 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.3));
+  text-decoration: none;
+}
+@keyframes logo-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Nav links — underline grow + color shift on hover */
+.navbar-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.3s ease;
+}
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b9d, #ffd166);
+  border-radius: 2px;
+  transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 107, 157, 0.4);
+}
+.navbar-link:hover {
+  color: #fff;
+}
+.navbar-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Animated gradient line at bottom of navbar */
+.navbar-border-glow {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #ff6b9d 15%,
+    #ffd166 35%,
+    #ff4757 50%,
+    #ff9ff3 65%,
+    #ffaa33 85%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: navbar-glow-slide 3s linear infinite;
+  opacity: 0.7;
+}
+@keyframes navbar-glow-slide {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+/* ── Section backgrounds ────────────────────────────────────────────── */
+
+.section-about {
+  background: radial-gradient(ellipse at 80% 30%, rgba(255, 209, 102, 0.04) 0%, transparent 60%);
+}
+.section-experience {
+  background: radial-gradient(ellipse at 20% 40%, rgba(255, 99, 72, 0.05) 0%, transparent 60%);
+}
+.section-skills {
+  background: radial-gradient(ellipse at 60% 30%, rgba(255, 159, 243, 0.04) 0%, transparent 60%);
+}
+.section-projects {
+  background: radial-gradient(ellipse at 40% 50%, rgba(255, 71, 87, 0.04) 0%, transparent 60%);
+}
+.section-education {
+  background: radial-gradient(ellipse at 80% 40%, rgba(255, 170, 51, 0.05) 0%, transparent 60%);
+}
+.section-blog {
+  background: radial-gradient(ellipse at 30% 30%, rgba(255, 107, 157, 0.04) 0%, transparent 60%);
+}
+.section-contact {
+  background: radial-gradient(ellipse at 70% 50%, rgba(255, 209, 102, 0.04) 0%, transparent 60%);
+}
+
+/* ── Wave dividers ──────────────────────────────────────────────────── */
+
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin: -1px 0;
+}
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 60px;
+}
+@media (min-width: 768px) {
+  .wave-divider svg {
+    height: 80px;
+  }
+}
+
+/* ── Flashy Code Card ─────────────────────────────────────────────────── */
+
+/* Outer wrapper — rotating gradient border */
+.code-card-border {
+  position: relative;
+  padding: 2px;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+/* Large rotating conic gradient behind the card = animated border */
+.code-card-glow {
+  position: absolute;
+  inset: -80%;
+  background: conic-gradient(
+    #ff6b9d, #ffd166, #ff4757, #ff9ff3, #ffaa33, #ff6348, #ff6b9d
+  );
+  animation: card-glow-spin 4s linear infinite;
+  z-index: 0;
+}
+@keyframes card-glow-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Inner card — sits on top of the glow */
+.code-card-inner {
+  position: relative;
+  z-index: 1;
+  background: rgba(15, 10, 30, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: calc(0.75rem - 2px);
+  overflow: hidden;
+}
+
+/* Ambient outer glow shadow */
+.code-card-border {
+  box-shadow:
+    0 0 30px rgba(255, 107, 157, 0.2),
+    0 0 60px rgba(255, 71, 87, 0.12),
+    0 0 100px rgba(255, 209, 102, 0.06);
+  animation: card-glow-spin 4s linear infinite, card-shadow-pulse 3s ease-in-out infinite;
+}
+@keyframes card-shadow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 30px rgba(255, 107, 157, 0.2),
+      0 0 60px rgba(255, 71, 87, 0.12),
+      0 0 100px rgba(255, 209, 102, 0.06);
+  }
+  50% {
+    box-shadow:
+      0 0 40px rgba(255, 107, 157, 0.35),
+      0 0 80px rgba(255, 71, 87, 0.2),
+      0 0 120px rgba(255, 209, 102, 0.1);
+  }
+}
+
+/* Scanning light line sweeping across the card */
+.code-card-inner::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 6%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 107, 157, 0.07),
+    rgba(255, 209, 102, 0.05),
+    transparent
+  );
+  animation: code-scanline 3.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+@keyframes code-scanline {
+  0%   { top: -10%; }
+  100% { top: 110%; }
+}
+
+/* Shimmer highlight sweep over the code area */
+.code-shimmer {
+  position: relative;
+}
+.code-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+@keyframes shimmer-sweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Pulsing terminal dots */
+.dot-pulse {
+  animation: dot-glow 2s ease-in-out infinite;
+}
+.dot-pulse-delay-1 { animation-delay: 0.25s; }
+.dot-pulse-delay-2 { animation-delay: 0.5s; }
+@keyframes dot-glow {
+  0%, 100% { box-shadow: 0 0 4px currentColor; transform: scale(1); }
+  50%      { box-shadow: 0 0 10px currentColor, 0 0 20px currentColor; transform: scale(1.25); }
+}
+
+/* Card title styling */
+.code-card-title {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #ff6b9d;
+  text-shadow: 0 0 12px rgba(255, 107, 157, 0.3);
+  padding: 0.75rem 1rem 0.5rem;
+}
+
+/* Hover lift effect — no rotation, just a subtle rise + glow boost */
+.code-card-border {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.code-card-border:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 40px rgba(255, 107, 157, 0.4),
+    0 0 80px rgba(255, 71, 87, 0.25),
+    0 0 120px rgba(255, 209, 102, 0.12);
+}
+
+/* ── 3D Project Cards ─────────────────────────────────────────────────── */
+
+/* Animated gradient border */
+.proj-card-border {
+  border-radius: 1rem;
+}
+
+/* Spinning conic gradient for animated border */
+.proj-card-glow {
+  position: absolute;
+  inset: -120%;
+  background: conic-gradient(
+    #ff4757, #ff6b9d, #ffd166, #ff6348, #ff9ff3, #ffaa33, #ff4757
+  );
+  animation: proj-glow-spin 3s linear infinite;
+  z-index: 0;
+}
+@keyframes proj-glow-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Inner card surface — deep dark with glass feel */
+.proj-card-inner {
+  background: linear-gradient(
+    165deg,
+    rgba(20, 10, 35, 0.97) 0%,
+    rgba(15, 8, 28, 0.99) 50%,
+    rgba(25, 12, 40, 0.97) 100%
+  );
+  backdrop-filter: blur(16px);
+}
+
+/* Header bar — subtle gradient background */
+.proj-card-header {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 71, 87, 0.08) 0%,
+    rgba(255, 107, 157, 0.04) 50%,
+    rgba(255, 209, 102, 0.06) 100%
+  );
+}
+
+/* Title text — bold gradient text */
+.proj-card-title {
+  background: linear-gradient(135deg, #ff6b9d, #ffd166, #ff4757);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.3));
+}
+
+/* Code body — scanline + shimmer */
+.proj-card-code {
+  position: relative;
+  background: rgba(10, 6, 22, 0.5);
+}
+
+/* Shimmer sweep on the code area */
+.proj-card-code::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.03) 45%,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0.03) 55%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-sweep 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Scanline effect */
+.proj-card-inner::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 209, 102, 0.06),
+    rgba(255, 107, 157, 0.04),
+    transparent
+  );
+  animation: code-scanline 4s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
 }

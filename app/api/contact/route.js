@@ -9,8 +9,8 @@ const transporter = nodemailer.createTransport({
   port: 587,
   secure: false, 
   auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY, 
+    user: process.env.EMAIL_ADDRESS?.trim(),
+    pass: process.env.GMAIL_PASSKEY?.trim(),
   },
 });
 
@@ -51,7 +51,7 @@ async function sendEmail(payload, message) {
   
   const mailOptions = {
     from: "Portfolio", 
-    to: process.env.EMAIL_ADDRESS, 
+    to: process.env.EMAIL_ADDRESS?.trim(),
     subject: `New Message From ${name}`, 
     text: message, 
     html: generateEmailTemplate(name, email, userMessage), 
@@ -71,8 +71,8 @@ export async function POST(request) {
   try {
     const payload = await request.json();
     const { name, email, message: userMessage } = payload;
-    const token = process.env.TELEGRAM_BOT_TOKEN;
-    const chat_id = process.env.TELEGRAM_CHAT_ID;
+    const token = process.env.TELEGRAM_BOT_TOKEN?.trim();
+    const chat_id = parseInt(process.env.TELEGRAM_CHAT_ID?.trim(), 10);
 
     const message = `New message from ${name}\n\nEmail: ${email}\n\nMessage:\n\n${userMessage}\n\n`;
 

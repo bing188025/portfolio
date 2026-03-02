@@ -1,7 +1,7 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Software Engineer I',
+    title: 'Senior AI Engineer',
     company: "Teton Private Ltd.",
     duration: "(Jan 2022 - Present)"
   },
@@ -13,7 +13,7 @@ export const experiences = [
   },
   {
     id: 3,
-    title: "Self Employed",
+    title: "Frontend Developer",
     company: "Code and build something in everyday.",
     duration: "(Jan 2018 - Present)"
   }

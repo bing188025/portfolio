@@ -34,6 +34,15 @@ export const projectsData = [
         code: '',
         demo: '',
         role: 'Full Stack Developer',
+    },
+    {
+        id: 5,
+        name: 'Voice AI Agent',
+        description: 'Built a real-time voice AI agent that handles natural conversations with users over the phone and web. The agent uses a speech-to-text pipeline to transcribe user input, processes it through an LLM for intent recognition and response generation, and streams the reply back as synthesized speech. Designed for customer support automation, the agent supports multi-turn dialogue, context memory, and graceful handoff to human agents when needed.',
+        tools: ['Python', 'FastAPI', 'OpenAI API', 'Whisper', 'ElevenLabs', 'WebSocket', 'Redis', 'React', 'TypeScript'],
+        role: 'Fullstack & AI Developer',
+        code: '',
+        demo: '',
     }
 ];
 
