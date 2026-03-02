@@ -8,7 +8,7 @@ import { FaCommentAlt } from 'react-icons/fa';
 function BlogCard({ blog }) {
 
   return (
-    <div className="border border-[#3a1545] hover:border-[#ff6b9d66] transition-all duration-500 bg-[#1e0e2e] rounded-lg relative group"
+    <div className="border border-pink-200 hover:border-pink-400 transition-all duration-500 bg-white rounded-lg shadow-sm relative group"
     >
       <div className="h-44 lg:h-52 w-auto cursor-pointer overflow-hidden rounded-t-lg">
         <Image
@@ -36,14 +36,14 @@ function BlogCard({ blog }) {
           </div>
         </div>
         <Link target='_blank' href={blog.url}>
-          <p className='my-2 lg:my-3 cursor-pointer text-lg text-white sm:text-xl font-medium hover:text-pink-400'>
+          <p className='my-2 lg:my-3 cursor-pointer text-lg text-gray-800 sm:text-xl font-medium hover:text-pink-400'>
             {blog.title}
           </p>
         </Link>
         <p className='mb-2 text-sm text-[#ff6b9d]'>
           {`${blog.reading_time_minutes} Min Read`}
         </p>
-        <p className='text-sm lg:text-base text-[#d3d8e8] pb-3 lg:pb-6 line-clamp-3'>
+        <p className='text-sm lg:text-base text-gray-500 pb-3 lg:pb-6 line-clamp-3'>
           {blog.description}
         </p>
         {/* <div className="">

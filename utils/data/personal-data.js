@@ -1,8 +1,8 @@
 export const personalData = {
   name: "KENZAN UMEZAKI",
   profile: '/profile.png',
-  designation: "Fullstack & AI Developer",
-  description: "My name is Kenzan Umezaki. I am a fullstack and AI developer with a passion for building innovative web applications and intelligent systems. I am a quick learner with a self-learning attitude, always eager to explore new technologies and solve complex problems. I specialize in both frontend and backend development, and I leverage AI to create smarter, more efficient solutions. I am available for any kind of job opportunity that suits my skills and interests.",
+  designation: "Fullstack & AI/ML Developer",
+  description: "I am a Fullstack & AI/ML Developer with nine years of professional experience building intelligent systems and scalable web applications. My career spans fintech, DeFi, and blockchain — from ML recommendation engines and LLM-powered analytics at Plaid and Finatext in Japan, to leading autonomous agent architectures and on-chain AI at Spherium.Finance in Singapore. I specialize in bridging the gap between cutting-edge AI research and production-grade software, with deep hands-on expertise in React, Next.js, FastAPI, Solidity, Rust, TensorFlow, and large language model orchestration. I thrive at the intersection of AI and decentralized technology, turning complex problems into elegant, high-impact solutions.",
   email: 'saar54223@gmail.com',
   phone: '',
   address: '',

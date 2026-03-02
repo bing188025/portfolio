@@ -1,20 +1,32 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Senior AI Engineer',
-    company: "Teton Private Ltd.",
-    duration: "(Jan 2022 - Present)"
+    title: 'Lead AI & Blockchain Engineer',
+    company: "Spherium.Finance (Singapore)",
+    duration: "(Sep 2024 - Present)"
   },
   {
     id: 2,
-    title: "FullStack Developer",
-    company: "Fiverr (freelance)",
-    duration: "(Jun 2021 - Jan 2022)"
+    title: "Frontend & Applied AI Engineer",
+    company: "Finatext (Japan)",
+    duration: "(May 2021 - Sep 2024)"
   },
   {
     id: 3,
-    title: "Frontend Developer",
-    company: "Code and build something in everyday.",
-    duration: "(Jan 2018 - Present)"
+    title: "AI-Blockchain Research Developer",
+    company: "Plaid (Japan)",
+    duration: "(Jan 2020 - Apr 2021)"
+  },
+  {
+    id: 4,
+    title: "Senior Full-Stack & AI Systems Developer",
+    company: "Finatext (Japan)",
+    duration: "(Jan 2018 - Dec 2019)"
+  },
+  {
+    id: 5,
+    title: "Software Engineer Intern",
+    company: "Plaid (Japan)",
+    duration: "(Jan 2017 - Jan 2018)"
   }
 ]

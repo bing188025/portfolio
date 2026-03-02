@@ -1,18 +1,18 @@
 @use "tailwindcss";
 
 :root {
-  --foreground-rgb: rgb(211, 216, 232);
+  --foreground-rgb: 55, 45, 60;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 55, 45, 60;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: #0f0a1e;
+  background-color: #fff5f0;
 }
 
 #sticky-card-1 {
@@ -39,21 +39,22 @@ body {
 /* ── Navbar ──────────────────────────────────────────────────────────── */
 
 .navbar-glass {
-  background: rgba(15, 10, 30, 0.7);
+  background: rgba(255, 248, 243, 0.85);
   backdrop-filter: blur(16px) saturate(1.4);
   -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  border-bottom: 1px solid rgba(255, 107, 157, 0.08);
+  border-bottom: 1px solid rgba(255, 107, 157, 0.15);
+  box-shadow: 0 2px 20px rgba(255, 107, 157, 0.06);
 }
 
 /* Gradient logo text */
 .navbar-logo {
-  background: linear-gradient(135deg, #ff6b9d 0%, #ffd166 50%, #ff4757 100%);
+  background: linear-gradient(135deg, #ff6b9d 0%, #ff4757 50%, #e8446d 100%);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: logo-gradient-shift 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.3));
+  filter: drop-shadow(0 0 6px rgba(255, 107, 157, 0.2));
   text-decoration: none;
 }
 @keyframes logo-gradient-shift {
@@ -64,7 +65,7 @@ body {
 /* Nav links — underline grow + color shift on hover */
 .navbar-link {
   position: relative;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(60, 40, 60, 0.7);
   transition: color 0.3s ease;
 }
 .navbar-link::after {
@@ -77,10 +78,10 @@ body {
   background: linear-gradient(90deg, #ff6b9d, #ffd166);
   border-radius: 2px;
   transition: width 0.3s ease, left 0.3s ease;
-  box-shadow: 0 0 8px rgba(255, 107, 157, 0.4);
+  box-shadow: 0 0 8px rgba(255, 107, 157, 0.3);
 }
 .navbar-link:hover {
-  color: #fff;
+  color: #ff4757;
 }
 .navbar-link:hover::after {
   width: 100%;
@@ -102,7 +103,7 @@ body {
   );
   background-size: 200% 100%;
   animation: navbar-glow-slide 3s linear infinite;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 @keyframes navbar-glow-slide {
   0%   { background-position: 100% 0; }
@@ -112,25 +113,25 @@ body {
 /* ── Section backgrounds ────────────────────────────────────────────── */
 
 .section-about {
-  background: radial-gradient(ellipse at 80% 30%, rgba(255, 209, 102, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 80% 30%, rgba(255, 209, 102, 0.12) 0%, transparent 60%);
 }
 .section-experience {
-  background: radial-gradient(ellipse at 20% 40%, rgba(255, 99, 72, 0.05) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 20% 40%, rgba(255, 99, 72, 0.1) 0%, transparent 60%);
 }
 .section-skills {
-  background: radial-gradient(ellipse at 60% 30%, rgba(255, 159, 243, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 60% 30%, rgba(255, 159, 243, 0.1) 0%, transparent 60%);
 }
 .section-projects {
-  background: radial-gradient(ellipse at 40% 50%, rgba(255, 71, 87, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 40% 50%, rgba(255, 71, 87, 0.08) 0%, transparent 60%);
 }
 .section-education {
-  background: radial-gradient(ellipse at 80% 40%, rgba(255, 170, 51, 0.05) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 80% 40%, rgba(255, 170, 51, 0.1) 0%, transparent 60%);
 }
 .section-blog {
-  background: radial-gradient(ellipse at 30% 30%, rgba(255, 107, 157, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 30%, rgba(255, 107, 157, 0.08) 0%, transparent 60%);
 }
 .section-contact {
-  background: radial-gradient(ellipse at 70% 50%, rgba(255, 209, 102, 0.04) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 70% 50%, rgba(255, 209, 102, 0.1) 0%, transparent 60%);
 }
 
 /* ── Wave dividers ──────────────────────────────────────────────────── */
@@ -152,9 +153,8 @@ body {
   }
 }
 
-/* ── Flashy Code Card ─────────────────────────────────────────────────── */
+/* ── Flashy Code Card (hero) ──────────────────────────────────────────── */
 
-/* Outer wrapper — rotating gradient border */
 .code-card-border {
   position: relative;
   padding: 2px;
@@ -162,7 +162,6 @@ body {
   overflow: hidden;
 }
 
-/* Large rotating conic gradient behind the card = animated border */
 .code-card-glow {
   position: absolute;
   inset: -80%;
@@ -176,40 +175,35 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Inner card — sits on top of the glow */
+/* Inner card stays dark for code readability */
 .code-card-inner {
   position: relative;
   z-index: 1;
-  background: rgba(15, 10, 30, 0.95);
+  background: rgba(22, 15, 38, 0.97);
   backdrop-filter: blur(12px);
   border-radius: calc(0.75rem - 2px);
   overflow: hidden;
 }
 
-/* Ambient outer glow shadow */
 .code-card-border {
   box-shadow:
-    0 0 30px rgba(255, 107, 157, 0.2),
-    0 0 60px rgba(255, 71, 87, 0.12),
-    0 0 100px rgba(255, 209, 102, 0.06);
+    0 0 25px rgba(255, 107, 157, 0.25),
+    0 0 50px rgba(255, 71, 87, 0.12);
   animation: card-glow-spin 4s linear infinite, card-shadow-pulse 3s ease-in-out infinite;
 }
 @keyframes card-shadow-pulse {
   0%, 100% {
     box-shadow:
-      0 0 30px rgba(255, 107, 157, 0.2),
-      0 0 60px rgba(255, 71, 87, 0.12),
-      0 0 100px rgba(255, 209, 102, 0.06);
+      0 0 25px rgba(255, 107, 157, 0.25),
+      0 0 50px rgba(255, 71, 87, 0.12);
   }
   50% {
     box-shadow:
-      0 0 40px rgba(255, 107, 157, 0.35),
-      0 0 80px rgba(255, 71, 87, 0.2),
-      0 0 120px rgba(255, 209, 102, 0.1);
+      0 0 35px rgba(255, 107, 157, 0.4),
+      0 0 70px rgba(255, 71, 87, 0.2);
   }
 }
 
-/* Scanning light line sweeping across the card */
 .code-card-inner::before {
   content: '';
   position: absolute;
@@ -233,7 +227,6 @@ body {
   100% { top: 110%; }
 }
 
-/* Shimmer highlight sweep over the code area */
 .code-shimmer {
   position: relative;
 }
@@ -259,7 +252,6 @@ body {
   100% { background-position: -200% 0; }
 }
 
-/* Pulsing terminal dots */
 .dot-pulse {
   animation: dot-glow 2s ease-in-out infinite;
 }
@@ -270,7 +262,6 @@ body {
   50%      { box-shadow: 0 0 10px currentColor, 0 0 20px currentColor; transform: scale(1.25); }
 }
 
-/* Card title styling */
 .code-card-title {
   text-align: center;
   font-size: 1.1rem;
@@ -281,7 +272,6 @@ body {
   padding: 0.75rem 1rem 0.5rem;
 }
 
-/* Hover lift effect — no rotation, just a subtle rise + glow boost */
 .code-card-border {
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
@@ -289,18 +279,15 @@ body {
   transform: translateY(-4px);
   box-shadow:
     0 0 40px rgba(255, 107, 157, 0.4),
-    0 0 80px rgba(255, 71, 87, 0.25),
-    0 0 120px rgba(255, 209, 102, 0.12);
+    0 0 80px rgba(255, 71, 87, 0.25);
 }
 
 /* ── 3D Project Cards ─────────────────────────────────────────────────── */
 
-/* Animated gradient border */
 .proj-card-border {
   border-radius: 1rem;
 }
 
-/* Spinning conic gradient for animated border */
 .proj-card-glow {
   position: absolute;
   inset: -120%;
@@ -314,18 +301,17 @@ body {
   to { transform: rotate(360deg); }
 }
 
-/* Inner card surface — deep dark with glass feel */
+/* Inner card stays dark for code readability */
 .proj-card-inner {
   background: linear-gradient(
     165deg,
-    rgba(20, 10, 35, 0.97) 0%,
-    rgba(15, 8, 28, 0.99) 50%,
-    rgba(25, 12, 40, 0.97) 100%
+    rgba(22, 15, 38, 0.97) 0%,
+    rgba(18, 12, 32, 0.99) 50%,
+    rgba(26, 16, 44, 0.97) 100%
   );
   backdrop-filter: blur(16px);
 }
 
-/* Header bar — subtle gradient background */
 .proj-card-header {
   background: linear-gradient(
     135deg,
@@ -335,7 +321,6 @@ body {
   );
 }
 
-/* Title text — bold gradient text */
 .proj-card-title {
   background: linear-gradient(135deg, #ff6b9d, #ffd166, #ff4757);
   background-clip: text;
@@ -345,13 +330,11 @@ body {
   filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.3));
 }
 
-/* Code body — scanline + shimmer */
 .proj-card-code {
   position: relative;
-  background: rgba(10, 6, 22, 0.5);
+  background: rgba(12, 8, 24, 0.5);
 }
 
-/* Shimmer sweep on the code area */
 .proj-card-code::after {
   content: '';
   position: absolute;
@@ -370,7 +353,6 @@ body {
   z-index: 5;
 }
 
-/* Scanline effect */
 .proj-card-inner::before {
   content: '';
   position: absolute;
