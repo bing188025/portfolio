@@ -11,12 +11,12 @@ import ContactForm from './contact-form';
 
 function ContactSection() {
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-gray-800">
+    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-gray-200">
       <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
         <span className="bg-gradient-to-r from-amber-400 to-yellow-500 w-fit text-white rotate-90 p-2 px-5 text-xl rounded-md shadow-md">
           CONTACT
         </span>
-        <span className="h-36 w-[2px] bg-amber-300"></span>
+        <span className="h-36 w-[2px] bg-white/20"></span>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         <ContactForm />
@@ -24,14 +24,14 @@ function ContactSection() {
           <div className="flex flex-col gap-5 lg:gap-9">
             <p className="text-sm md:text-xl flex items-center gap-3">
               <MdAlternateEmail
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={36}
               />
               <span>{personalData.email}</span>
             </p>
             <p className="text-sm md:text-xl flex items-center gap-3">
               <IoMdCall
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={36}
               />
               <span>
@@ -40,7 +40,7 @@ function ContactSection() {
             </p>
             <p className="text-sm md:text-xl flex items-center gap-3">
               <CiLocationOn
-                className="bg-[#8b98a5] p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-2 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={36}
               />
               <span>
@@ -51,31 +51,31 @@ function ContactSection() {
           <div className="mt-8 lg:mt-16 flex items-center gap-5 lg:gap-10">
             <Link target="_blank" href={personalData.github}>
               <IoLogoGithub
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={48}
               />
             </Link>
             <Link target="_blank" href={personalData.linkedIn}>
               <BiLogoLinkedin
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={48}
               />
             </Link>
             <Link target="_blank" href={personalData.twitter}>
               <FaXTwitter
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={48}
               />
             </Link>
             <Link target="_blank" href={personalData.stackOverflow}>
               <FaStackOverflow
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={48}
               />
             </Link>
             <Link target="_blank" href={personalData.facebook}>
               <FaFacebook
-                className="bg-[#8b98a5] p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-gray-800 cursor-pointer"
+                className="bg-white/10 p-3 rounded-full hover:bg-[#ffd166] hover:scale-110 transition-all duration-300 text-white cursor-pointer"
                 size={48}
               />
             </Link>

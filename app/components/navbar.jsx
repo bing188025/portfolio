@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Navbar() {
   return (
-    <nav className="navbar-glass fixed top-0 left-0 right-0 z-50 w-full">
+    <nav className="navbar-glass fixed top-0 left-0 right-0 z-[100] w-full">
       <div className="mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] flex items-center justify-between py-4">
         <div className="flex flex-shrink-0 items-center">
           <Link href="/" className="navbar-logo text-2xl md:text-3xl font-extrabold tracking-tight">
@@ -18,7 +18,7 @@ function Navbar() {
             { label: "EXPERIENCE", href: "/#experience" },
             { label: "SKILLS", href: "/#skills" },
             { label: "EDUCATION", href: "/#education" },
-            { label: "BLOGS", href: "/blog" },
+            { label: "TESTIMONIALS", href: "/#testimonials" },
             { label: "PROJECTS", href: "/#projects" },
           ].map((item) => (
             <li key={item.label}>

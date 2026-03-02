@@ -26,13 +26,13 @@ function HeroSection() {
 
       <div className="grid grid-cols-1 items-start lg:grid-cols-2 lg:gap-12 gap-y-8">
         <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-2 pb-20 md:pb-10 lg:pt-10">
-          <h1 className="text-3xl font-bold leading-10 text-gray-800 md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
+          <h1 className="text-3xl font-bold leading-10 text-white md:font-extrabold lg:text-[2.6rem] lg:leading-[3.5rem]">
             Hello, <br />
-            This is {' '}
+            I&apos;m {' '}
             <span className=" text-pink-500">{personalData.name}</span>
-            {` , I'm a Professional `}
+            {` , a `}
             <span className=" text-[#ffd166]">{personalData.designation}</span>
-            .
+            {' '}with 9+ years of experience.
           </h1>
 
           <div className="my-12 flex items-center gap-5">
@@ -75,7 +75,7 @@ function HeroSection() {
 
           <div className="flex items-center gap-3">
             <Link href="#contact" className="bg-gradient-to-r to-pink-500 from-rose-600 p-[1px] rounded-full transition-all duration-300 hover:from-pink-500 hover:to-amber-500">
-              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-white rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-gray-800 no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
+              <button className="px-3 text-xs md:px-8 py-3 md:py-4 bg-[#0a0814] rounded-full border-none text-center md:text-sm font-medium uppercase tracking-wider text-white no-underline transition-all duration-200 ease-out  md:font-semibold flex items-center gap-1 hover:gap-3">
                 <span>Contact me</span>
                 <RiContactsFill size={16} />
               </button>
@@ -98,7 +98,7 @@ function HeroSection() {
                 <div className="h-3 w-3 rounded-full bg-orange-400 dot-pulse dot-pulse-delay-1"></div>
                 <div className="h-3 w-3 rounded-full bg-green-300 dot-pulse dot-pulse-delay-2"></div>
               </div>
-              <div className="flex-1 code-card-title">Fullstack &amp; AI Developer</div>
+              <div className="flex-1 code-card-title">Fullstack &amp; AI/ML Developer</div>
             </div>
             <div className="overflow-hidden border-t-[2px] border-pink-900/50 px-4 lg:px-8 py-4 lg:py-8 code-shimmer">
               <code className="font-mono text-xs md:text-sm lg:text-base">
@@ -119,35 +119,37 @@ function HeroSection() {
                   <span className="text-gray-400">{`['`}</span>
                   <span className="text-amber-300">React</span>
                   <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">NextJS</span>
+                  <span className="text-amber-300">FastAPI</span>
                   <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">Node.js</span>
+                  <span className="text-amber-300">TensorFlow</span>
+                  <span className="text-gray-400">{"', '"}</span>
+                  <span className="text-amber-300">LLMs</span>
+                  <span className="text-gray-400">{"', '"}</span>
+                  <span className="text-amber-300">Solidity</span>
+                  <span className="text-gray-400">{"', '"}</span>
+                  <span className="text-amber-300">Rust</span>
                   <span className="text-gray-400">{"', '"}</span>
                   <span className="text-amber-300">Python</span>
                   <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">TypeScript</span>
-                  <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">PostgreSQL</span>
-                  <span className="text-gray-400">{"', '"}</span>
                   <span className="text-amber-300">Docker</span>
                   <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">AI/ML</span>
-                  <span className="text-gray-400">{"', '"}</span>
-                  <span className="text-amber-300">LLMs</span>
+                  <span className="text-amber-300">MLOps</span>
                   <span className="text-gray-400">{"'],"}</span>
                 </div>
                 <div>
-                  <span className="ml-4 lg:ml-8 mr-2 text-white">hardWorker:</span>
-                  <span className="text-orange-400">true</span>
-                  <span className="text-gray-400">,</span>
+                  <span className="ml-4 lg:ml-8 mr-2 text-white">experience:</span>
+                  <span className="text-gray-400">{`'`}</span>
+                  <span className="text-amber-300">9+ years</span>
+                  <span className="text-gray-400">{`',`}</span>
                 </div>
                 <div>
-                  <span className="ml-4 lg:ml-8 mr-2 text-white">quickLearner:</span>
-                  <span className="text-orange-400">true</span>
-                  <span className="text-gray-400">,</span>
+                  <span className="ml-4 lg:ml-8 mr-2 text-white">focus:</span>
+                  <span className="text-gray-400">{`'`}</span>
+                  <span className="text-amber-300">AI + Blockchain</span>
+                  <span className="text-gray-400">{`',`}</span>
                 </div>
                 <div>
-                  <span className="ml-4 lg:ml-8 mr-2 text-white">problemSolver:</span>
+                  <span className="ml-4 lg:ml-8 mr-2 text-white">shipping:</span>
                   <span className="text-orange-400">true</span>
                   <span className="text-gray-400">,</span>
                 </div>
