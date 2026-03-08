@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "./components/footer";
+import AIChatbot from "./components/helper/ai-chatbot";
 import ScrollToTop from "./components/helper/scroll-to-top";
 import ThreeBackground from "./components/helper/three-background";
 import Navbar from "./components/navbar";
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           {children}
           <ScrollToTop />
         </main>
+        <AIChatbot />
         <Footer />
       </body>
       <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />

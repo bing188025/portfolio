@@ -73,7 +73,7 @@ function Experience() {
 
   return (
     <div id="experience" className="relative z-50 border-t my-12 lg:my-24 border-white/10">
-      <Image src="/section.svg" alt="" width={1572} height={795} className="absolute top-0 -z-10" />
+      <Image src="/section.svg" alt="" width={1572} height={795} className="absolute top-0 -z-10" suppressHydrationWarning />
 
       {/* Section heading */}
       <div className="flex justify-center my-5 lg:py-8">
@@ -114,7 +114,7 @@ function Experience() {
                 <div key={exp.id} style={getCardStyle(index)}>
                   <GlowCard identifier={`experience-${exp.id}`}>
                     <div className="p-3 relative">
-                      <Image src="/blur-23.svg" alt="" width={1080} height={200} className="absolute bottom-0 opacity-80" />
+                      <Image src="/blur-23.svg" alt="" width={1080} height={200} className="absolute bottom-0 opacity-80" suppressHydrationWarning />
                       <div className="flex justify-center">
                         <p className="text-xs sm:text-sm text-[#ff6348]">{exp.duration}</p>
                       </div>

@@ -15,6 +15,7 @@ function Education() {
         width={1572}
         height={795}
         className="absolute top-0 -z-10"
+        suppressHydrationWarning
       />
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
@@ -52,6 +53,7 @@ function Education() {
                         width={1080}
                         height={200}
                         className="absolute bottom-0 opacity-80"
+                        suppressHydrationWarning
                       />
                       <div className="flex justify-center">
                         <p className="text-xs sm:text-sm text-[#ffaa33]">
