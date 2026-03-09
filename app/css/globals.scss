@@ -436,3 +436,419 @@ body {
   opacity: 0.4;
   cursor: not-allowed;
 }
+
+/* ── Password Vault Gate ───────────────────────────────────────────── */
+
+.vault-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #030308;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.vault-overlay.vault-reveal {
+  animation: vault-3d-reveal 2.8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes vault-3d-reveal {
+  0% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1);
+    filter: brightness(1) saturate(1);
+  }
+  20% {
+    filter: brightness(1.8) saturate(1.5);
+  }
+  40% {
+    opacity: 1;
+    transform: perspective(1200px) rotateY(-15deg) rotateX(5deg) scale(1.02);
+    filter: brightness(3) saturate(2);
+  }
+  55% {
+    transform: perspective(1200px) rotateY(8deg) rotateX(-3deg) scale(0.98);
+    filter: brightness(4) saturate(2.5);
+  }
+  70% {
+    transform: perspective(1200px) rotateY(-3deg) rotateX(2deg) scale(0.9);
+    filter: brightness(6) saturate(3);
+  }
+  85% {
+    opacity: 0.5;
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(0.7);
+    filter: brightness(8) saturate(4);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(0.5);
+    filter: brightness(0);
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+/* Three.js background */
+.vault-three-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Gradient overlay for blending */
+.vault-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 45%, transparent 0%, rgba(3,3,8,0.4) 60%, rgba(3,3,8,0.85) 100%);
+  pointer-events: none;
+}
+
+/* ── Vault Content ─────────────────────────────────────────────────── */
+
+.vault-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.vault-content-unlock {
+  animation: vault-content-burst 2.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes vault-content-burst {
+  0% {
+    transform: scale(1) rotateY(0deg);
+    filter: brightness(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.12) rotateY(5deg);
+    filter: brightness(2) drop-shadow(0 0 40px rgba(74,108,247,0.6));
+  }
+  50% {
+    transform: scale(1.2) rotateY(-3deg);
+    filter: brightness(4) drop-shadow(0 0 80px rgba(74,108,247,0.8));
+  }
+  100% {
+    transform: scale(0.3) rotateY(0deg);
+    filter: brightness(8);
+    opacity: 0;
+  }
+}
+
+/* Flash overlay */
+.vault-flash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: radial-gradient(circle at 50% 45%, rgba(74,108,247,0.6) 0%, rgba(168,85,247,0.3) 30%, transparent 70%);
+  animation: vault-flash-anim 2.5s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes vault-flash-anim {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  40% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+/* Badge */
+.vault-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(74, 108, 247, 0.25);
+  background: rgba(74, 108, 247, 0.06);
+  backdrop-filter: blur(12px);
+  color: rgba(140, 170, 255, 0.85);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  animation: vault-badge-glow 3s ease-in-out infinite;
+}
+@keyframes vault-badge-glow {
+  0%, 100% { box-shadow: 0 0 12px rgba(74,108,247,0.08); }
+  50% { box-shadow: 0 0 24px rgba(74,108,247,0.2); }
+}
+
+/* Title */
+.vault-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #e8eaf6;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-shadow: 0 0 40px rgba(74, 108, 247, 0.2), 0 0 80px rgba(74, 108, 247, 0.08);
+}
+
+/* ── Vault Dial ──────────────────────────────────────────────────── */
+
+.vault-dial-container {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem 0;
+}
+
+.vault-dial-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: vault-dial-rotate 25s linear infinite;
+}
+
+.vault-ring-dash {
+  animation: vault-ring-dash-spin 15s linear infinite;
+  transform-origin: center;
+}
+.vault-ring-dash-reverse {
+  animation: vault-ring-dash-spin 12s linear infinite reverse;
+  transform-origin: center;
+}
+@keyframes vault-ring-dash-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes vault-dial-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.vault-dial-container.vault-unlocking .vault-dial-svg {
+  animation: vault-dial-spin-fast 0.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+@keyframes vault-dial-spin-fast {
+  to { transform: rotate(360deg); }
+}
+
+.vault-lock-icon {
+  position: relative;
+  z-index: 2;
+  color: rgba(140, 165, 230, 0.55);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 0 8px rgba(74, 108, 247, 0.15));
+}
+.vault-dial-container.vault-unlocking .vault-lock-icon {
+  color: rgba(80, 220, 160, 1);
+  filter: drop-shadow(0 0 30px rgba(80, 220, 160, 0.8)) drop-shadow(0 0 60px rgba(80, 220, 160, 0.4));
+  animation: vault-lock-pop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+@keyframes vault-lock-pop {
+  0% { transform: scale(1) rotateZ(0deg); }
+  40% { transform: scale(1.5) rotateZ(-10deg); }
+  70% { transform: scale(1.3) rotateZ(5deg); }
+  100% { transform: scale(1.2) rotateZ(0deg); }
+}
+
+.vault-dial-glow {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(74, 108, 247, 0.1) 0%, rgba(74, 108, 247, 0.03) 30%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+  transition: all 0.8s ease;
+}
+.vault-dial-container.vault-unlocking .vault-dial-glow {
+  background: radial-gradient(circle, rgba(80, 220, 160, 0.4) 0%, rgba(74, 108, 247, 0.15) 35%, transparent 60%);
+}
+
+.vault-dial-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(74, 108, 247, 0.08);
+  animation: vault-pulse-ring 3s ease-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes vault-pulse-ring {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+.vault-dial-container.vault-unlocking .vault-dial-pulse {
+  border-color: rgba(80, 220, 160, 0.3);
+  animation: vault-pulse-ring 0.5s ease-out infinite;
+}
+
+/* Shake on error */
+.vault-shake {
+  animation: vault-shake-anim 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+@keyframes vault-shake-anim {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-14px) rotateZ(-1deg); }
+  30% { transform: translateX(12px) rotateZ(1deg); }
+  45% { transform: translateX(-10px) rotateZ(-0.5deg); }
+  60% { transform: translateX(8px) rotateZ(0.5deg); }
+  75% { transform: translateX(-4px); }
+  90% { transform: translateX(2px); }
+}
+
+/* ── PIN Inputs ──────────────────────────────────────────────────── */
+
+.vault-pin-row {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.5rem;
+}
+
+.vault-pin-input {
+  width: 50px;
+  height: 58px;
+  border-radius: 0.65rem;
+  border: 1px solid rgba(74, 108, 247, 0.12);
+  background: rgba(12, 15, 35, 0.6);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  caret-color: rgba(74, 108, 247, 0.7);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.03);
+}
+.vault-pin-input::placeholder { color: transparent; }
+.vault-pin-input:focus {
+  border-color: rgba(74, 108, 247, 0.5);
+  box-shadow:
+    0 0 16px rgba(74, 108, 247, 0.15),
+    0 0 32px rgba(74, 108, 247, 0.06),
+    inset 0 0 12px rgba(74, 108, 247, 0.05);
+  background: rgba(18, 22, 50, 0.8);
+  transform: translateY(-2px);
+}
+.vault-pin-filled {
+  border-color: rgba(74, 108, 247, 0.35);
+  background: rgba(20, 28, 60, 0.75);
+  box-shadow:
+    0 0 10px rgba(74, 108, 247, 0.1),
+    inset 0 0 6px rgba(74, 108, 247, 0.03);
+}
+.vault-pin-error {
+  border-color: rgba(255, 71, 87, 0.6) !important;
+  box-shadow: 0 0 16px rgba(255, 71, 87, 0.2), inset 0 0 8px rgba(255, 71, 87, 0.05) !important;
+  background: rgba(40, 15, 20, 0.6) !important;
+}
+.vault-pin-input:disabled {
+  opacity: 0.6;
+}
+
+/* Hint */
+.vault-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: rgba(140, 165, 220, 0.4);
+  font-size: 0.78rem;
+  margin-top: 0.15rem;
+}
+
+.vault-error-msg {
+  color: #ff4757;
+  font-size: 0.8rem;
+  margin: 0;
+  text-shadow: 0 0 12px rgba(255, 71, 87, 0.3);
+  animation: vault-fade-in 0.3s ease;
+}
+@keyframes vault-fade-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Footer ──────────────────────────────────────────────────────── */
+
+.vault-footer {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 2;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.vault-footer-hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+  pointer-events: none;
+}
+.vault-footer-text {
+  color: rgba(140, 160, 210, 0.35);
+  font-size: 0.78rem;
+  margin: 0;
+  line-height: 1.65;
+}
+.vault-contact-link {
+  color: rgba(100, 150, 255, 0.75);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+.vault-contact-link:hover {
+  color: rgba(130, 175, 255, 1);
+  text-shadow: 0 0 8px rgba(100, 150, 255, 0.3);
+  text-decoration: underline;
+}
+
+/* Social buttons */
+.vault-socials {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.vault-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(74, 108, 247, 0.12);
+  background: rgba(12, 15, 35, 0.5);
+  backdrop-filter: blur(12px);
+  color: rgba(160, 185, 240, 0.65);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.vault-social-btn:hover {
+  border-color: rgba(74, 108, 247, 0.3);
+  background: rgba(20, 30, 60, 0.7);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(74, 108, 247, 0.12);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .vault-title { font-size: 1.6rem; }
+  .vault-dial-container { width: 150px; height: 150px; }
+  .vault-pin-input { width: 42px; height: 50px; font-size: 1.1rem; }
+  .vault-pin-row { gap: 0.45rem; }
+  .vault-footer { bottom: 1rem; padding: 0 1rem; }
+  .vault-socials { bottom: 0.75rem; right: 0.75rem; }
+  .vault-social-btn { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+}
