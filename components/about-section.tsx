@@ -37,6 +37,15 @@ const capabilities = [
 export function AboutSection() {
   return (
     <section id="about" className="py-24 lg:py-32 relative overflow-hidden">
+      {/*
+        Background video:
+          Primary  — "AGI's potential to enrich lives" by XK Studio / Google DeepMind
+                     Pexels #18069830 · UHD 2560×1440 · free under Pexels Licence
+                     Abstract AI animation depicting human-AI collaboration and enrichment —
+                     directly mirrors the About section's message of building AI that helps people
+          Fallback — Google DeepMind "Visualising AI" companion piece
+                     Pexels #18069862 · UHD 2560×1440 · free under Pexels Licence
+      */}
       <video
         autoPlay
         muted
@@ -44,14 +53,14 @@ export function AboutSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.22 }}
+        style={{ zIndex: 0, opacity: 0.25 }}
       >
         <source
-          src="https://videos.pexels.com/video-files/6893173/6893173-hd_1920_1080_25fps.mp4"
+          src="https://videos.pexels.com/video-files/18069830/18069830-uhd_2560_1440_24fps.mp4"
           type="video/mp4"
         />
         <source
-          src="https://videos.pexels.com/video-files/6892621/6892621-hd_1920_1080_25fps.mp4"
+          src="https://videos.pexels.com/video-files/18069862/18069862-uhd_2560_1440_24fps.mp4"
           type="video/mp4"
         />
       </video>

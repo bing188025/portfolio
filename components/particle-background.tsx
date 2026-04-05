@@ -14,6 +14,9 @@ interface Particle {
   opacity: number
   baseOpacity: number
   hue: number
+  sparklePhase: number       // unique phase offset so each atom twinkles independently
+  sparkleSpeed: number       // how fast the sparkle pulses
+  sparkleArms: number        // number of star arms (4 or 6)
 }
 
 // Each recorded position in the cursor trail history
@@ -109,6 +112,9 @@ export function ParticleBackground() {
           opacity: baseOpacity,
           baseOpacity,
           hue: 180 + Math.random() * 40,
+          sparklePhase: Math.random() * Math.PI * 2,
+          sparkleSpeed: 0.04 + Math.random() * 0.06,
+          sparkleArms: Math.random() < 0.5 ? 4 : 6,
         }
       })
     }
@@ -256,6 +262,12 @@ export function ParticleBackground() {
         if (p.y < -20) p.y = canvas.height + 20
         if (p.y > canvas.height + 20) p.y = -20
 
+        // Advance this atom's sparkle phase
+        p.sparklePhase += p.sparkleSpeed
+
+        // Pulsing sparkle intensity: 0 → 1 → 0 on a sine wave
+        const sparkleIntensity = (Math.sin(p.sparklePhase) + 1) / 2
+
         ctx.save()
         ctx.shadowBlur = 8
         ctx.shadowColor = `hsla(${p.hue}, 90%, 60%, ${p.opacity * 0.5})`
@@ -264,6 +276,45 @@ export function ParticleBackground() {
         ctx.fillStyle = `hsla(${p.hue}, 90%, 65%, ${p.opacity})`
         ctx.fill()
         ctx.restore()
+
+        // ── Sparkle star around the atom ──────────────────────────────────
+        if (sparkleIntensity > 0.05) {
+          const arms = p.sparkleArms
+          // Outer arm length scales with atom size and intensity
+          const outerR = p.size * (2.5 + sparkleIntensity * 3.5)
+          // Inner notch is a fraction of outer
+          const innerR = p.size * 0.55
+          const sparkleAlpha = sparkleIntensity * p.opacity * 1.6
+
+          ctx.save()
+          ctx.translate(p.x, p.y)
+          // Slowly rotate the star over time for extra liveliness
+          ctx.rotate(timeRef.current * 0.6 + p.sparklePhase * 0.25)
+
+          // Glowing halo behind the star
+          ctx.shadowBlur = 10 + sparkleIntensity * 14
+          ctx.shadowColor = `hsla(${p.hue}, 100%, 75%, ${sparkleAlpha * 0.7})`
+
+          ctx.beginPath()
+          for (let a = 0; a < arms * 2; a++) {
+            const r = a % 2 === 0 ? outerR : innerR
+            const theta = (a / (arms * 2)) * Math.PI * 2
+            if (a === 0) ctx.moveTo(Math.cos(theta) * r, Math.sin(theta) * r)
+            else ctx.lineTo(Math.cos(theta) * r, Math.sin(theta) * r)
+          }
+          ctx.closePath()
+
+          // Gradient fill: bright centre → transparent tips
+          const starGrad = ctx.createRadialGradient(0, 0, 0, 0, 0, outerR)
+          starGrad.addColorStop(0,   `hsla(${p.hue}, 100%, 92%, ${sparkleAlpha})`)
+          starGrad.addColorStop(0.35, `hsla(${p.hue}, 95%, 75%, ${sparkleAlpha * 0.65})`)
+          starGrad.addColorStop(1,   `hsla(${p.hue}, 90%, 65%, 0)`)
+          ctx.fillStyle = starGrad
+          ctx.fill()
+
+          ctx.restore()
+        }
+        // ─────────────────────────────────────────────────────────────────
       })
 
       // Draw connections with gradient lines

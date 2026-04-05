@@ -27,6 +27,7 @@ const socialLinks = [
 export function ContactSection() {
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+      {/* Hand scrolling on smartphone at night — Pixabay #169445 (man's hand, dark room, 4K, no face) */}
       <video
         autoPlay
         muted
@@ -34,14 +35,14 @@ export function ContactSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.25 }}
+        style={{ zIndex: 0, opacity: 0.35 }}
       >
         <source
-          src="https://cdn.pixabay.com/video/2018/03/09/14900-259623335_large.mp4"
+          src="https://cdn.pixabay.com/video/2023/06/30/169445-841382824_large.mp4"
           type="video/mp4"
         />
         <source
-          src="https://cdn.pixabay.com/video/2019/10/09/27669-365224683_large.mp4"
+          src="https://cdn.pixabay.com/video/2024/03/04/202987-919379330_large.mp4"
           type="video/mp4"
         />
       </video>
@@ -51,7 +52,7 @@ export function ContactSection() {
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: 'radial-gradient(ellipse at 60% 50%, rgba(5,8,20,0.35) 0%, rgba(5,8,20,0.8) 65%, rgba(5,8,20,0.96) 100%)',
+          background: 'radial-gradient(ellipse at 60% 50%, rgba(5,8,20,0.30) 0%, rgba(5,8,20,0.75) 60%, rgba(5,8,20,0.97) 100%)',
         }}
       />
       {/* Top/bottom edge fades */}
@@ -59,7 +60,15 @@ export function ContactSection() {
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(5,8,20,0.9) 0%, rgba(5,8,20,0.12) 18%, rgba(5,8,20,0.12) 82%, rgba(5,8,20,0.95) 100%)',
+          background: 'linear-gradient(to bottom, rgba(5,8,20,0.92) 0%, rgba(5,8,20,0.08) 15%, rgba(5,8,20,0.08) 85%, rgba(5,8,20,0.96) 100%)',
+        }}
+      />
+      {/* Subtle cyan tint to tie into site palette */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: 'radial-gradient(ellipse at 65% 55%, rgba(0,200,220,0.06) 0%, transparent 55%)',
         }}
       />
 

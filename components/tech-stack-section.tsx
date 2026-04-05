@@ -175,8 +175,18 @@ export function TechStackSection() {
           <div className="mt-16 relative h-64 hidden lg:block">
             <div className="absolute inset-0 flex items-center justify-center">
               {/* Center Core */}
-              <div className="w-20 h-20 rounded-full bg-linear-to-br from-primary to-chart-2 flex items-center justify-center shadow-lg shadow-primary/30">
-                <span className="text-2xl font-bold text-primary-foreground">AI</span>
+              <div className="relative w-20 h-20 flex items-center justify-center">
+                {/* Outer glow ring */}
+                <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(0,220,200,0.35)_0%,rgba(0,180,220,0.15)_60%,transparent_100%)] blur-md scale-125" />
+                {/* Main sphere */}
+                <div
+                  className="relative w-20 h-20 rounded-full flex items-center justify-center shadow-[0_0_32px_8px_rgba(0,210,200,0.45)]"
+                  style={{
+                    background: 'radial-gradient(circle at 38% 36%, #7af0e8 0%, #00c8d4 38%, #00a0c8 70%, #0070a0 100%)',
+                  }}
+                >
+                  <span className="text-2xl font-bold text-white drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]">AI</span>
+                </div>
               </div>
 
               {/* Orbiting Elements - Pre-calculated positions to avoid hydration mismatch */}
