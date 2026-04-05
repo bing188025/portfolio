@@ -137,9 +137,13 @@
   }
   body {
     @apply bg-background text-foreground;
+    cursor: none;
   }
   html {
     scroll-behavior: smooth;
+  }
+  a, button, [role="button"], input, textarea, select, label {
+    cursor: none;
   }
 }
 
@@ -205,6 +209,22 @@
 
 .glow-text {
   text-shadow: 0 0 30px var(--glow);
+}
+
+/* Scattered text reveal */
+@keyframes scatter-appear {
+  from {
+    opacity: 0;
+    transform: translate(var(--sx, 0px), var(--sy, 0px)) rotate(var(--sr, 0deg)) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translate(var(--sx, 0px), var(--sy, 0px)) rotate(var(--sr, 0deg)) scale(0.7);
+  }
+}
+
+.scatter-char {
+  animation: scatter-appear 0.18s ease forwards;
 }
 
 /* Perspective for 3D effects */

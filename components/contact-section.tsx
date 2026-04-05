@@ -26,12 +26,43 @@ const socialLinks = [
 
 export function ContactSection() {
   return (
-    <section id="contact" className="py-24 lg:py-32 relative">
-      {/* Background accents */}
-      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/4 right-0 w-80 h-80 bg-chart-2/10 rounded-full blur-3xl" />
+    <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0, opacity: 0.2 }}
+      >
+        <source
+          src="https://cdn.pixabay.com/video/2018/03/09/14900-259623335_large.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://cdn.pixabay.com/video/2019/10/09/27669-365224683_large.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Scrim */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: [
+            'radial-gradient(ellipse at 70% 50%, rgba(5,8,20,0.4) 0%, rgba(5,8,20,0.85) 100%)',
+            'linear-gradient(to bottom, rgba(5,8,20,0.6) 0%, rgba(5,8,20,0.25) 50%, rgba(5,8,20,0.7) 100%)',
+          ].join(', '),
+        }}
+      />
+
+      {/* Background accents */}
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-chart-2/10 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
             <span className="text-primary font-medium text-sm tracking-wider uppercase">Get In Touch</span>

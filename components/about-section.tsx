@@ -36,11 +36,48 @@ const capabilities = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 lg:py-32 relative">
-      {/* Background accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" />
-      
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="about" className="py-24 lg:py-32 relative overflow-hidden">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0, opacity: 0.4 }}
+      >
+        <source
+          src="https://videos.pexels.com/video-files/6893173/6893173-hd_1920_1080_25fps.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://videos.pexels.com/video-files/6892621/6892621-hd_1920_1080_25fps.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Multi-layer scrim: deep dark vignette + site colour tint */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: [
+            'radial-gradient(ellipse at center, rgba(5,8,20,0.45) 0%, rgba(5,8,20,0.82) 100%)',
+            'linear-gradient(to bottom, rgba(5,8,20,0.6) 0%, rgba(5,8,20,0.3) 40%, rgba(5,8,20,0.7) 100%)',
+          ].join(', '),
+        }}
+      />
+
+      {/* Subtle primary-colour tint to tie video into site palette */}
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 1, background: 'rgba(56, 189, 248, 0.04)' }}
+      />
+
+      {/* Background accent orb */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
             <span className="text-primary font-medium text-sm tracking-wider uppercase">About Me</span>

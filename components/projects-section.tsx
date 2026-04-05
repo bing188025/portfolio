@@ -6,6 +6,7 @@ import { TiltCard } from './tilt-card'
 import { cn } from '@/lib/utils'
 import { ExternalLink, Github, Brain, Boxes, Globe, Smartphone } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const categories = [
   { id: "all", label: "All Projects", icon: Boxes },
@@ -23,14 +24,18 @@ const projects = [
     tech: ["Python", "LangChain", "OpenAI", "FastAPI"],
     category: "ai",
     featured: true,
-    image: "/images/projects/ai-agent.jpg"
+    image: "/images/projects/ai-agent.jpg",
+    // github: "https://github.com/masterAI359/ai-agent",
+    // demoUrl: "https://your-demo-url.com"
   },
   {
     title: "AI English Learning System",
     description: "Intelligent language learning platform with adaptive curriculum and real-time pronunciation feedback.",
     tech: ["Python", "NLP", "Speech Recognition", "React"],
     category: "ai",
-    image: "/images/projects/ai-learning.jpg"
+    image: "/images/projects/ai-learning.jpg",
+    github: "https://github.com/masterAI359/echo-english",
+    demoUrl: "https://spelix.jp"
   },
   {
     title: "AI Healthcare Diagnosis Agent",
@@ -38,21 +43,27 @@ const projects = [
     tech: ["Python", "LLM", "Voice AI", "Medical NLP"],
     category: "ai",
     featured: true,
-    image: "/images/projects/healthcare-ai.jpg"
+    image: "/images/projects/healthcare-ai.jpg",
+    github: "https://github.com/masterAI359/care",
+    demoUrl: "https://hapiken.jp/"
   },
   {
     title: "Face Recognition Library",
     description: "High-performance facial recognition library with real-time detection and embedding generation.",
     tech: ["Python", "OpenCV", "dlib", "TensorFlow"],
     category: "ai",
-    image: "/images/projects/face-recognition.jpg"
+    image: "/images/projects/face-recognition.jpg",
+    github: "https://github.com/masterAI359/face-recognition",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Crack Detection AI System",
     description: "Computer vision system for automated infrastructure crack detection and severity classification.",
     tech: ["Python", "YOLO", "PyTorch", "OpenCV"],
     category: "ai",
-    image: "/images/projects/crack-detection.jpg"
+    image: "/images/projects/crack-detection.jpg",
+    github: "https://github.com/masterAI359/crack-detection",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "4D Gaussian Splatting Generator",
@@ -60,21 +71,27 @@ const projects = [
     tech: ["Python", "CUDA", "PyTorch", "3D Graphics"],
     category: "ai",
     featured: true,
-    image: "/images/projects/gaussian-splatting.jpg"
+    image: "/images/projects/gaussian-splatting.jpg",
+    github: "https://github.com/masterAI359/gaussian-splatting",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Horse Racing Prediction AI",
     description: "Machine learning system for race outcome prediction using historical data and real-time factors.",
     tech: ["Python", "XGBoost", "Feature Engineering", "API"],
     category: "ai",
-    image: "/images/projects/horse-racing.jpg"
+    image: "/images/projects/horse-racing.jpg",
+    github: "https://github.com/masterAI359/horse-racing",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Blueprint Material Estimation",
     description: "AI-powered system for automatic material quantity estimation from architectural blueprints.",
     tech: ["Python", "Computer Vision", "OCR", "ML"],
     category: "ai",
-    image: "/images/projects/blueprint.jpg"
+    image: "/images/projects/blueprint.jpg",
+    github: "https://github.com/masterAI359/blueprint",
+    demoUrl: "https://your-demo-url.com"
   },
 
   // Advanced Graphics / 3D / 4D
@@ -83,21 +100,27 @@ const projects = [
     description: "Local model-based rendering system for high-quality 3D and 4D content generation.",
     tech: ["Python", "OpenGL", "CUDA", "Neural Rendering"],
     category: "graphics",
-    image: "/images/projects/3d-rendering.jpg"
+    image: "/images/projects/3d-rendering.jpg",
+    github: "https://github.com/masterAI359/3d-rendering",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "4D Gaussian Splatting Viewer",
     description: "Interactive viewer for visualizing and exploring 4D Gaussian splatting reconstructions.",
     tech: ["WebGL", "Three.js", "React", "WASM"],
     category: "graphics",
-    image: "/images/projects/4d-viewer.jpg"
+    image: "/images/projects/4d-viewer.jpg",
+    github: "https://github.com/masterAI359/4d-viewer",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "PCD to PLY Conversion System",
     description: "Point cloud data conversion pipeline with optimization and format transformation.",
     tech: ["Python", "Open3D", "NumPy", "CLI"],
     category: "graphics",
-    image: "/images/projects/point-cloud.jpg"
+    image: "/images/projects/point-cloud.jpg",
+    github: "https://github.com/masterAI359/point-cloud",
+    demoUrl: "https://your-demo-url.com"
   },
 
   // Full-Stack Platforms
@@ -107,42 +130,54 @@ const projects = [
     tech: ["Next.js", "PostgreSQL", "Stripe", "TypeScript"],
     category: "fullstack",
     featured: true,
-    image: "/images/projects/crowdfunding.jpg"
+    image: "/images/projects/crowdfunding.jpg",
+    github: "https://github.com/masterAI359/crowdfunding",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Marine Tourism Reservation",
     description: "Comprehensive booking platform for marine tourism with real-time availability and payments.",
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
     category: "fullstack",
-    image: "/images/projects/marine-tourism.jpg"
+    image: "/images/projects/marine-tourism.jpg",
+    github: "https://github.com/masterAI359/marine-tourism",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Phone Number Search System",
     description: "High-performance phone number lookup service with carrier identification and validation.",
     tech: ["Node.js", "Redis", "PostgreSQL", "API"],
     category: "fullstack",
-    image: "/images/projects/phone-search.jpg"
+    image: "/images/projects/phone-search.jpg",
+    github: "https://github.com/masterAI359/phone-search",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "eSIM Sales Platform",
     description: "Digital eSIM marketplace with instant activation, global coverage, and subscription management.",
     tech: ["Next.js", "Prisma", "Stripe", "REST API"],
     category: "fullstack",
-    image: "/images/projects/esim.jpg"
+    image: "/images/projects/esim.jpg",
+    github: "https://github.com/masterAI359/esim",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Corporate Business System",
     description: "Enterprise resource planning system with modules for HR, finance, and project management.",
     tech: ["React", "Node.js", "PostgreSQL", "Docker"],
     category: "fullstack",
-    image: "/images/projects/corporate-system.jpg"
+    image: "/images/projects/corporate-system.jpg",
+    github: "https://github.com/masterAI359/corporate-system",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "VPS Hosting Platform",
     description: "Cloud hosting management platform with automated provisioning and resource monitoring.",
     tech: ["Next.js", "Docker", "Kubernetes", "API"],
     category: "fullstack",
-    image: "/images/projects/vps-hosting.jpg"
+    image: "/images/projects/vps-hosting.jpg",
+    github: "https://github.com/masterAI359/vps-hosting",
+    demoUrl: "https://your-demo-url.com"
   },
 
   // Apps & Tools
@@ -151,14 +186,18 @@ const projects = [
     description: "Dynamic live wallpaper application with customizable animations and themes.",
     tech: ["Kotlin", "Android SDK", "OpenGL ES", "Firebase"],
     category: "apps",
-    image: "/images/projects/live-wallpaper.jpg"
+    image: "/images/projects/live-wallpaper.jpg",
+    github: "https://github.com/masterAI359/live-wallpaper",
+    demoUrl: "https://your-demo-url.com"
   },
   {
     title: "Discord Bot with Payments",
     description: "Feature-rich Discord bot with integrated payment processing and subscription management.",
     tech: ["Node.js", "Discord.js", "Stripe", "MongoDB"],
     category: "apps",
-    image: "/images/projects/discord-bot.jpg"
+    image: "/images/projects/discord-bot.jpg",
+    github: "https://github.com/masterAI359/discord-bot",
+    demoUrl: "https://your-demo-url.com"
   },
 ]
 
@@ -170,12 +209,43 @@ export function ProjectsSection() {
     : projects.filter(p => p.category === activeCategory)
 
   return (
-    <section id="projects" className="py-24 lg:py-32 relative">
-      {/* Background accents */}
-      <div className="absolute top-1/3 left-0 w-1/3 h-1/3 bg-chart-2/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl" />
+    <section id="projects" className="py-24 lg:py-32 relative overflow-hidden">
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0, opacity: 0.18 }}
+      >
+        <source
+          src="https://cdn.pixabay.com/video/2019/10/09/27706-365890968_large.mp4"
+          type="video/mp4"
+        />
+        <source
+          src="https://cdn.pixabay.com/video/2020/04/21/36784-412873690_large.mp4"
+          type="video/mp4"
+        />
+      </video>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Scrim: vignette + top/bottom fade */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: [
+            'radial-gradient(ellipse at center, rgba(5,8,20,0.5) 0%, rgba(5,8,20,0.88) 100%)',
+            'linear-gradient(to bottom, rgba(5,8,20,0.65) 0%, rgba(5,8,20,0.25) 50%, rgba(5,8,20,0.65) 100%)',
+          ].join(', '),
+        }}
+      />
+
+      {/* Background accents */}
+      <div className="absolute top-1/3 left-0 w-1/3 h-1/3 bg-chart-2/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-1/4 right-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-12">
             <span className="text-primary font-medium text-sm tracking-wider uppercase">Portfolio</span>
@@ -236,12 +306,20 @@ export function ProjectsSection() {
                     </span>
                   )}
                   <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <button className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View GitHub">
-                      <Github className="h-4 w-4 text-foreground" />
-                    </button>
-                    <button className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View Demo">
-                      <ExternalLink className="h-4 w-4 text-foreground" />
-                    </button>
+                    {
+                      project.github !== "" && project.github !== null && (
+                        <Link href={project.github || ""} className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View GitHub">
+                          <Github className="h-4 w-4 text-foreground" />
+                        </Link>
+                      )
+                    }
+                    {
+                      project.demoUrl !== "" && project.demoUrl !== null && (
+                        <Link href={project.demoUrl || ""} className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View Demo">
+                          <ExternalLink className="h-4 w-4 text-foreground" />
+                        </Link>
+                      )
+                    }
                   </div>
                 </div>
 
