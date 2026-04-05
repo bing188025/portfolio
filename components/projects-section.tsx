@@ -217,7 +217,7 @@ export function ProjectsSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.18 }}
+        style={{ zIndex: 0, opacity: 0.22 }}
       >
         <source
           src="https://cdn.pixabay.com/video/2019/10/09/27706-365890968_large.mp4"
@@ -229,21 +229,26 @@ export function ProjectsSection() {
         />
       </video>
 
-      {/* Scrim: vignette + top/bottom fade */}
+      {/* Vignette scrim */}
       <div
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: [
-            'radial-gradient(ellipse at center, rgba(5,8,20,0.5) 0%, rgba(5,8,20,0.88) 100%)',
-            'linear-gradient(to bottom, rgba(5,8,20,0.65) 0%, rgba(5,8,20,0.25) 50%, rgba(5,8,20,0.65) 100%)',
-          ].join(', '),
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(5,8,20,0.4) 0%, rgba(5,8,20,0.82) 65%, rgba(5,8,20,0.96) 100%)',
+        }}
+      />
+      {/* Top/bottom edge fades */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(5,8,20,0.9) 0%, rgba(5,8,20,0.1) 18%, rgba(5,8,20,0.1) 82%, rgba(5,8,20,0.9) 100%)',
         }}
       />
 
       {/* Background accents */}
-      <div className="absolute top-1/3 left-0 w-1/3 h-1/3 bg-chart-2/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-1/4 right-0 w-1/4 h-1/4 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute top-1/3 left-0 w-1/3 h-1/3 bg-chart-2/8 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-1/4 right-0 w-1/4 h-1/4 bg-primary/8 rounded-full blur-3xl" style={{ zIndex: 2 }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
@@ -251,7 +256,7 @@ export function ProjectsSection() {
             <span className="text-primary font-medium text-sm tracking-wider uppercase">Portfolio</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
               Featured
-              <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Projects</span>
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Projects</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               A collection of AI systems, full-stack platforms, and innovative applications 
@@ -268,10 +273,10 @@ export function ProjectsSection() {
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={cn(
-                  "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all",
+                  "flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all shadow-md",
                   activeCategory === category.id
-                    ? "bg-primary text-primary-foreground"
-                    : "glass border border-border text-muted-foreground hover:text-foreground hover:border-primary/30"
+                    ? "bg-primary text-primary-foreground shadow-primary/30"
+                    : "glass border border-border/70 text-foreground/70 hover:text-foreground hover:border-primary/40 hover:shadow-primary/10"
                 )}
               >
                 <category.icon className="h-4 w-4" />
@@ -287,35 +292,36 @@ export function ProjectsSection() {
             <ScrollAnimation key={project.title} delay={index * 50}>
               <TiltCard 
                 className={cn(
-                  "glass border border-border h-full group hover:border-primary/30 transition-all duration-300 overflow-hidden",
-                  project.featured && "md:col-span-1 ring-1 ring-primary/20"
+                  "glass border border-border/60 h-full group hover:border-primary/40 transition-all duration-300 overflow-hidden shadow-xl shadow-black/30",
+                  project.featured && "md:col-span-1 ring-1 ring-primary/30"
                 )}
               >
                 {/* Project Image */}
-                <div className="relative h-40 w-full overflow-hidden">
+                <div className="relative h-44 w-full overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                  {/* Stronger gradient so card body doesn't bleed into image */}
+                  <div className="absolute inset-0 bg-linear-to-t from-[rgba(5,8,20,0.9)] via-[rgba(5,8,20,0.3)] to-transparent" />
                   {project.featured && (
-                    <span className="absolute top-3 left-3 px-2 py-1 text-xs font-medium bg-primary/90 text-primary-foreground rounded">
+                    <span className="absolute top-3 left-3 px-2 py-1 text-xs font-semibold bg-primary text-primary-foreground rounded shadow-md shadow-primary/30">
                       Featured
                     </span>
                   )}
                   <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                     {
                       project.github !== "" && project.github !== null && (
-                        <Link href={project.github || ""} className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View GitHub">
+                        <Link href={project.github || ""} className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover:bg-background transition-colors shadow-md" aria-label="View GitHub">
                           <Github className="h-4 w-4 text-foreground" />
                         </Link>
                       )
                     }
                     {
                       project.demoUrl !== "" && project.demoUrl !== null && (
-                        <Link href={project.demoUrl || ""} className="p-2 rounded-lg bg-background/80 backdrop-blur-sm hover:bg-background transition-colors" aria-label="View Demo">
+                        <Link href={project.demoUrl || ""} className="p-2 rounded-lg bg-background/90 backdrop-blur-sm hover:bg-background transition-colors shadow-md" aria-label="View Demo">
                           <ExternalLink className="h-4 w-4 text-foreground" />
                         </Link>
                       )
@@ -330,7 +336,7 @@ export function ProjectsSection() {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+                  <p className="text-foreground/60 text-sm leading-relaxed mb-4 flex-1">
                     {project.description}
                   </p>
 
@@ -339,7 +345,7 @@ export function ProjectsSection() {
                     {project.tech.map((tech) => (
                       <span 
                         key={tech} 
-                        className="px-2 py-1 text-xs bg-secondary text-secondary-foreground rounded-md"
+                        className="px-2 py-1 text-xs bg-background/60 border border-border/50 text-foreground/70 rounded-md"
                       >
                         {tech}
                       </span>

@@ -86,7 +86,7 @@ export function TechStackSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.15 }}
+        style={{ zIndex: 0, opacity: 0.2 }}
       >
         <source
           src="https://cdn.pixabay.com/video/2016/08/22/4760-179739327_large.mp4"
@@ -98,20 +98,25 @@ export function TechStackSection() {
         />
       </video>
 
-      {/* Background */}
-      <div className="absolute inset-0 bg-secondary/30" style={{ zIndex: 1 }} />
-
-      {/* Scrim over video */}
+      {/* Vignette scrim */}
       <div
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(5,8,20,0.55) 0%, rgba(5,8,20,0.2) 50%, rgba(5,8,20,0.55) 100%)',
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(5,8,20,0.45) 0%, rgba(5,8,20,0.82) 65%, rgba(5,8,20,0.96) 100%)',
+        }}
+      />
+      {/* Top/bottom edge fades + subtle secondary tint */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(5,8,20,0.9) 0%, rgba(10,14,35,0.25) 20%, rgba(10,14,35,0.25) 80%, rgba(5,8,20,0.9) 100%)',
         }}
       />
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" style={{ zIndex: 2 }} />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-primary/20 to-transparent" style={{ zIndex: 2 }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
@@ -119,7 +124,7 @@ export function TechStackSection() {
             <span className="text-primary font-medium text-sm tracking-wider uppercase">Technologies</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
               Tech
-              <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Stack</span>
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Stack</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
               A comprehensive toolkit spanning AI/ML, modern frontend frameworks, 
@@ -132,11 +137,11 @@ export function TechStackSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {techCategories.map((category, categoryIndex) => (
             <ScrollAnimation key={category.title} delay={categoryIndex * 100}>
-              <div className="glass border border-border rounded-2xl p-6 lg:p-8 h-full">
+              <div className="glass border border-border/60 rounded-2xl p-6 lg:p-8 h-full shadow-xl shadow-black/30 hover:border-primary/30 transition-colors">
                 {/* Category Header */}
                 <div className="flex items-center gap-3 mb-6">
                   <div className={cn(
-                    "w-1 h-8 rounded-full bg-gradient-to-b",
+                    "w-1 h-8 rounded-full bg-linear-to-b shadow-sm",
                     category.color
                   )} />
                   <h3 className="text-xl font-semibold text-foreground">{category.title}</h3>
@@ -147,14 +152,14 @@ export function TechStackSection() {
                   {category.technologies.map((tech, techIndex) => (
                     <div
                       key={tech.name}
-                      className="group flex items-center gap-3 p-3 rounded-xl bg-background/50 border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all cursor-default"
+                      className="group flex items-center gap-3 p-3 rounded-xl bg-background/60 border border-border/40 hover:border-primary/40 hover:bg-primary/8 transition-all cursor-default"
                       style={{ animationDelay: `${techIndex * 50}ms` }}
                     >
                       <tech.icon
-                        className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity"
+                        className="shrink-0 opacity-75 group-hover:opacity-100 transition-opacity"
                         style={{ color: tech.color, fontSize: '1.25rem' }}
                       />
-                      <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
+                      <span className="text-sm font-medium text-foreground/65 group-hover:text-foreground transition-colors">
                         {tech.name}
                       </span>
                     </div>
@@ -170,7 +175,7 @@ export function TechStackSection() {
           <div className="mt-16 relative h-64 hidden lg:block">
             <div className="absolute inset-0 flex items-center justify-center">
               {/* Center Core */}
-              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-chart-2 flex items-center justify-center shadow-lg shadow-primary/30">
+              <div className="w-20 h-20 rounded-full bg-linear-to-br from-primary to-chart-2 flex items-center justify-center shadow-lg shadow-primary/30">
                 <span className="text-2xl font-bold text-primary-foreground">AI</span>
               </div>
 

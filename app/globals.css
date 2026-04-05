@@ -39,10 +39,12 @@
   --sidebar-ring: oklch(0.7 0.18 195);
   
   /* Custom portfolio tokens */
-  --glow: oklch(0.7 0.18 195 / 0.4);
-  --glow-secondary: oklch(0.65 0.15 280 / 0.3);
-  --glass: oklch(0.15 0.02 250 / 0.6);
-  --glass-border: oklch(0.4 0.02 250 / 0.2);
+  --glow: oklch(0.7 0.18 195 / 0.5);
+  --glow-secondary: oklch(0.65 0.15 280 / 0.4);
+  --glass: oklch(0.13 0.02 250 / 0.75);
+  --glass-border: oklch(0.5 0.03 250 / 0.25);
+  --glass-hover: oklch(0.16 0.025 250 / 0.85);
+  --scrim-base: rgba(5, 8, 20, 1);
 }
 
 .dark {
@@ -80,10 +82,12 @@
   --sidebar-ring: oklch(0.7 0.18 195);
   
   /* Custom portfolio tokens */
-  --glow: oklch(0.7 0.18 195 / 0.4);
-  --glow-secondary: oklch(0.65 0.15 280 / 0.3);
-  --glass: oklch(0.15 0.02 250 / 0.6);
-  --glass-border: oklch(0.4 0.02 250 / 0.2);
+  --glow: oklch(0.7 0.18 195 / 0.5);
+  --glow-secondary: oklch(0.65 0.15 280 / 0.4);
+  --glass: oklch(0.13 0.02 250 / 0.75);
+  --glass-border: oklch(0.5 0.03 250 / 0.25);
+  --glass-hover: oklch(0.16 0.025 250 / 0.85);
+  --scrim-base: rgba(5, 8, 20, 1);
 }
 
 @theme inline {
@@ -129,6 +133,8 @@
   --color-glow-secondary: var(--glow-secondary);
   --color-glass: var(--glass);
   --color-glass-border: var(--glass-border);
+  --color-glass-hover: var(--glass-hover);
+  --color-scrim-base: var(--scrim-base);
 }
 
 @layer base {
@@ -198,17 +204,46 @@
 /* Glass effect */
 .glass {
   background: var(--glass);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
   border: 1px solid var(--glass-border);
+}
+
+.glass:hover {
+  background: var(--glass-hover);
 }
 
 /* Glow effects */
 .glow {
-  box-shadow: 0 0 40px var(--glow);
+  box-shadow: 0 0 40px var(--glow), 0 0 80px oklch(0.7 0.18 195 / 0.15);
 }
 
 .glow-text {
-  text-shadow: 0 0 30px var(--glow);
+  text-shadow: 0 0 30px var(--glow), 0 0 60px oklch(0.7 0.18 195 / 0.2);
+}
+
+/* Section edge blends — seamlessly connect sections over the dark background */
+.section-fade-top::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 0;
+  height: 6rem;
+  background: linear-gradient(to bottom, var(--scrim-base) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section-fade-bottom::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: auto;
+  bottom: 0;
+  height: 6rem;
+  background: linear-gradient(to top, var(--scrim-base) 0%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
 /* Scattered text reveal */

@@ -39,7 +39,7 @@ export function HeroSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.28 }}
+        style={{ zIndex: 0, opacity: 0.35 }}
       >
         <source
           src="https://cdn.pixabay.com/video/2017/11/02/12716-241674181_large.mp4"
@@ -51,35 +51,46 @@ export function HeroSection() {
         />
       </video>
 
-      {/* Dark gradient scrim so text stays readable */}
+      {/* Primary dark vignette scrim */}
       <div
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: 'linear-gradient(to bottom, rgba(5,8,20,0.55) 0%, rgba(5,8,20,0.3) 50%, rgba(5,8,20,0.75) 100%)',
+          background: 'radial-gradient(ellipse at 50% 40%, rgba(5,8,20,0.25) 0%, rgba(5,8,20,0.72) 70%, rgba(5,8,20,0.92) 100%)',
+        }}
+      />
+      {/* Top-to-bottom gradient for nav readability + bottom fade into next section */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(5,8,20,0.7) 0%, rgba(5,8,20,0.1) 35%, rgba(5,8,20,0.1) 65%, rgba(5,8,20,0.95) 100%)',
         }}
       />
 
       {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-chart-2/20 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2, animationDelay: '1.5s' }} />
-      
+      <div className="absolute top-1/4 left-1/4 w-md h-112 bg-primary/15 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-chart-2/15 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2, animationDelay: '1.5s' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-xl h-144 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+
       {/* Grid Background */}
       <div 
-        className="absolute inset-0 opacity-10"
+        className="absolute inset-0"
         style={{
           zIndex: 2,
-          backgroundImage: `linear-gradient(rgba(56, 189, 248, 0.1) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(56, 189, 248, 0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
+          backgroundImage: `linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px',
+          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)',
         }}
       />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center" style={{ zIndex: 3 }}>
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/20 mb-8 animate-fade-in">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/30 mb-8 animate-fade-in shadow-lg shadow-primary/10">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-sm text-muted-foreground">Available for new projects</span>
+          <span className="text-sm font-medium text-foreground/80">Available for new projects</span>
         </div>
 
         {/* Main Headline — scattered character reveal */}
@@ -139,7 +150,7 @@ export function HeroSection() {
             asChild
             size="lg" 
             variant="outline" 
-            className="border-border hover:bg-secondary px-8 py-6 text-lg"
+            className="border-border hover:text-primary/90 px-8 py-6 text-lg"
           >
             <a href="#contact">
               Hire Me
@@ -173,8 +184,9 @@ export function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-1">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
+          <span className="text-xs text-muted-foreground/60 tracking-widest uppercase">Scroll</span>
+          <div className="w-6 h-10 rounded-full border-2 border-primary/40 flex items-start justify-center p-1 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
             <div className="w-1.5 h-2.5 rounded-full bg-primary animate-pulse" />
           </div>
         </div>

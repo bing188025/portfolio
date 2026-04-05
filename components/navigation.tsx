@@ -27,9 +27,9 @@ export function Navigation() {
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled 
-          ? "bg-background/80 backdrop-blur-lg border-b border-border" 
+          ? "bg-background/85 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/20" 
           : "bg-transparent"
       )}
     >
@@ -37,7 +37,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+            <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center group-hover:bg-primary/25 transition-colors shadow-md shadow-primary/10">
               <span className="text-primary font-bold text-lg">AI</span>
             </div>
             <span className="font-semibold text-foreground hidden sm:block">Developer</span>
@@ -49,7 +49,7 @@ export function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors text-sm font-medium"
+                className="text-foreground/60 hover:text-foreground transition-colors text-sm font-medium relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-primary after:transition-all hover:after:w-full"
               >
                 {link.label}
               </a>
@@ -58,14 +58,14 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20">
               <a href="#contact">Hire Me</a>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground/80 hover:text-foreground transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -76,19 +76,19 @@ export function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-lg border-b border-border">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/20">
           <div className="px-4 py-4 space-y-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="block text-foreground/60 hover:text-foreground transition-colors py-2 border-b border-border/30 last:border-0"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20">
               <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Hire Me</a>
             </Button>
           </div>

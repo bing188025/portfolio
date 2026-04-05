@@ -44,7 +44,7 @@ export function AboutSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.4 }}
+        style={{ zIndex: 0, opacity: 0.22 }}
       >
         <source
           src="https://videos.pexels.com/video-files/6893173/6893173-hd_1920_1080_25fps.mp4"
@@ -56,26 +56,31 @@ export function AboutSection() {
         />
       </video>
 
-      {/* Multi-layer scrim: deep dark vignette + site colour tint */}
+      {/* Deep vignette scrim */}
       <div
         className="absolute inset-0"
         style={{
           zIndex: 1,
-          background: [
-            'radial-gradient(ellipse at center, rgba(5,8,20,0.45) 0%, rgba(5,8,20,0.82) 100%)',
-            'linear-gradient(to bottom, rgba(5,8,20,0.6) 0%, rgba(5,8,20,0.3) 40%, rgba(5,8,20,0.7) 100%)',
-          ].join(', '),
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(5,8,20,0.35) 0%, rgba(5,8,20,0.78) 65%, rgba(5,8,20,0.95) 100%)',
         }}
       />
-
-      {/* Subtle primary-colour tint to tie video into site palette */}
+      {/* Top/bottom edge fades for seamless section blending */}
       <div
         className="absolute inset-0"
-        style={{ zIndex: 1, background: 'rgba(56, 189, 248, 0.04)' }}
+        style={{
+          zIndex: 1,
+          background: 'linear-gradient(to bottom, rgba(5,8,20,0.9) 0%, rgba(5,8,20,0.15) 20%, rgba(5,8,20,0.15) 80%, rgba(5,8,20,0.9) 100%)',
+        }}
+      />
+      {/* Subtle cyan tint to tie video into site palette */}
+      <div
+        className="absolute inset-0"
+        style={{ zIndex: 1, background: 'rgba(56, 189, 248, 0.03)' }}
       />
 
-      {/* Background accent orb */}
-      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      {/* Background accent orbs */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-primary/8 rounded-full blur-3xl" style={{ zIndex: 2 }} />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-chart-2/6 rounded-full blur-3xl" style={{ zIndex: 2 }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
@@ -83,7 +88,7 @@ export function AboutSection() {
             <span className="text-primary font-medium text-sm tracking-wider uppercase">About Me</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
               Crafting the Future with
-              <span className="bg-gradient-to-r from-primary to-chart-2 bg-clip-text text-transparent"> AI & Code</span>
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> AI & Code</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
               With over 6 years of experience, I specialize in building production-ready AI systems 
@@ -96,11 +101,11 @@ export function AboutSection() {
         <ScrollAnimation delay={100}>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
             {stats.map((stat, index) => (
-              <TiltCard key={index} className="glass border border-border p-8 text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-primary mb-2">
+              <TiltCard key={index} className="glass border border-border/60 p-8 text-center shadow-xl shadow-black/30 hover:border-primary/40 transition-colors">
+                <div className="text-4xl lg:text-5xl font-bold text-primary mb-2 glow-text">
                   <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-foreground/70 font-medium">{stat.label}</div>
               </TiltCard>
             ))}
           </div>
@@ -110,14 +115,14 @@ export function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {capabilities.map((capability, index) => (
             <ScrollAnimation key={index} delay={index * 100}>
-              <TiltCard className="glass border border-border p-6 lg:p-8 h-full group hover:border-primary/30 transition-colors">
+              <TiltCard className="glass border border-border/60 p-6 lg:p-8 h-full group hover:border-primary/40 transition-all shadow-xl shadow-black/20">
                 <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
+                  <div className="p-3 rounded-xl bg-primary/15 text-primary group-hover:bg-primary/25 transition-colors shadow-md shadow-primary/10">
                     <capability.icon className="h-6 w-6" />
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-2 text-foreground">{capability.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{capability.description}</p>
+                    <p className="text-foreground/60 leading-relaxed">{capability.description}</p>
                   </div>
                 </div>
               </TiltCard>
