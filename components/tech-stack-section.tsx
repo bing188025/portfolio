@@ -1,86 +1,57 @@
 "use client"
 
-import {
-  Flame,
-  BrainCircuit,
-  Sparkles,
-  Link,
-  Bot,
-  Zap,
-  Eye,
-  Atom,
-  Triangle,
-  Code2,
-  Palette,
-  Smartphone,
-  Box,
-  Server,
-  Workflow,
-  Database,
-  Layers,
-  Network,
-  Container,
-  Cloud,
-  Terminal,
-  GitBranch,
-} from 'lucide-react'
 import { ScrollAnimation } from './scroll-animation'
 import { cn } from '@/lib/utils'
-import type { LucideIcon } from 'lucide-react'
 
-const techCategories: {
-  title: string
-  color: string
-  technologies: { name: string; Icon: LucideIcon }[]
-}[] = [
+const techCategories = [
   {
     title: "AI / ML",
     color: "from-primary to-chart-2",
     technologies: [
-      { name: "Python",       Icon: Code2        },
-      { name: "PyTorch",      Icon: Flame        },
-      { name: "TensorFlow",   Icon: BrainCircuit },
-      { name: "OpenAI",       Icon: Sparkles     },
-      { name: "LangChain",    Icon: Link         },
-      { name: "Hugging Face", Icon: Bot          },
-      { name: "CUDA",         Icon: Zap          },
-      { name: "OpenCV",       Icon: Eye          },
+      { name: "Python", icon: "🐍" },
+      { name: "PyTorch", icon: "🔥" },
+      { name: "TensorFlow", icon: "🧠" },
+      { name: "OpenAI", icon: "✨" },
+      { name: "LangChain", icon: "🔗" },
+      { name: "Hugging Face", icon: "🤗" },
+      { name: "CUDA", icon: "⚡" },
+      { name: "OpenCV", icon: "👁️" },
     ]
   },
   {
     title: "Frontend",
     color: "from-chart-2 to-chart-3",
     technologies: [
-      { name: "React",        Icon: Atom         },
-      { name: "Next.js",      Icon: Triangle     },
-      { name: "TypeScript",   Icon: Code2        },
-      { name: "Tailwind CSS", Icon: Palette      },
-      { name: "Flutter",      Icon: Smartphone   },
-      { name: "Three.js",     Icon: Box          },
+      { name: "React", icon: "⚛️" },
+      { name: "Next.js", icon: "▲" },
+      { name: "TypeScript", icon: "📘" },
+      { name: "Tailwind CSS", icon: "🎨" },
+      { name: "Flutter", icon: "💙" },
+      { name: "Three.js", icon: "🎮" },
     ]
   },
   {
     title: "Backend",
     color: "from-chart-3 to-chart-4",
     technologies: [
-      { name: "Node.js",    Icon: Server   },
-      { name: "FastAPI",    Icon: Workflow  },
-      { name: "PostgreSQL", Icon: Database  },
-      { name: "MongoDB",    Icon: Layers    },
-      { name: "Redis",      Icon: Zap       },
-      { name: "GraphQL",    Icon: Network   },
+      { name: "Node.js", icon: "🟢" },
+      { name: "FastAPI", icon: "⚡" },
+      { name: "PostgreSQL", icon: "🐘" },
+      { name: "MongoDB", icon: "🍃" },
+      { name: "Redis", icon: "🔴" },
+      { name: "GraphQL", icon: "◈" },
     ]
   },
   {
     title: "Infrastructure",
     color: "from-chart-4 to-primary",
     technologies: [
-      { name: "Docker",     Icon: Container },
-      { name: "Kubernetes", Icon: Network   },
-      { name: "AWS",        Icon: Cloud     },
-      { name: "Vercel",     Icon: Triangle  },
-      { name: "Linux",      Icon: Terminal  },
-      { name: "Git",        Icon: GitBranch },
+      { name: "Docker", icon: "🐳" },
+      { name: "Kubernetes", icon: "☸️" },
+      { name: "AWS", icon: "☁️" },
+      { name: "Vercel", icon: "▲" },
+      { name: "Linux", icon: "🐧" },
+      { name: "Git", icon: "📂" },
     ]
   },
 ]
@@ -159,10 +130,9 @@ export function TechStackSection() {
                       className="group flex items-center gap-3 p-3 rounded-xl bg-background/50 border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all cursor-default"
                       style={{ animationDelay: `${techIndex * 50}ms` }}
                     >
-                      <tech.Icon
-                        size={18}
-                        className="shrink-0 opacity-70 group-hover:opacity-100 group-hover:text-primary transition-all"
-                      />
+                      <span className="text-lg opacity-70 group-hover:opacity-100 transition-opacity">
+                        {tech.icon}
+                      </span>
                       <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                         {tech.name}
                       </span>
@@ -185,12 +155,12 @@ export function TechStackSection() {
 
               {/* Orbiting Elements - Pre-calculated positions to avoid hydration mismatch */}
               {[
-                { top: '50%',   left: '85%',   Icon: Atom,      delay: '0s'   },
-                { top: '80.3%', left: '67.5%', Icon: Code2,     delay: '0.5s' },
-                { top: '80.3%', left: '32.5%', Icon: Triangle,  delay: '1s'   },
-                { top: '50%',   left: '15%',   Icon: Container, delay: '1.5s' },
-                { top: '19.7%', left: '32.5%', Icon: Flame,     delay: '2s'   },
-                { top: '19.7%', left: '67.5%', Icon: Cloud,     delay: '2.5s' },
+                { top: '50%', left: '85%', icon: '⚛️', delay: '0s' },
+                { top: '80.3%', left: '67.5%', icon: '🐍', delay: '0.5s' },
+                { top: '80.3%', left: '32.5%', icon: '▲', delay: '1s' },
+                { top: '50%', left: '15%', icon: '🐳', delay: '1.5s' },
+                { top: '19.7%', left: '32.5%', icon: '🔥', delay: '2s' },
+                { top: '19.7%', left: '67.5%', icon: '☁️', delay: '2.5s' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -202,7 +172,7 @@ export function TechStackSection() {
                     animationDelay: item.delay,
                   }}
                 >
-                  <item.Icon size={20} className="text-primary/80" />
+                  <span className="text-lg">{item.icon}</span>
                 </div>
               ))}
 
