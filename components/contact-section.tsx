@@ -18,11 +18,10 @@ import {
 } from 'lucide-react'
 
 const socialLinks = [
-  { name: "Email", icon: Mail, href: "mailto:contact@masterai.dev", label: "contact@masterai.dev" },
   { name: "GitHub", icon: Github, href: "https://github.com/masterAI359", label: "github.com/masterAI359" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/masterAI359", label: "linkedin.com/in/masterAI359" },
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com/masterAI359", label: "facebook.com/masterAI359" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com/masterAI359", label: "@masterAI359" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/masterAI359", label: "linkedin" },
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com/masterAI359", label: "facebook" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com/masterAI359", label: "instagram" },
 ]
 
 export function ContactSection() {
