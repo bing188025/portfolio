@@ -2,56 +2,76 @@
 
 import { ScrollAnimation } from './scroll-animation'
 import { cn } from '@/lib/utils'
+import {
+  SiPython, SiPytorch, SiTensorflow, SiOpenai, SiLangchain, SiHuggingface, SiNvidia, SiOpencv,
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiFlutter, SiThreedotjs,
+  SiNodedotjs, SiFastapi, SiPostgresql, SiMongodb, SiRedis, SiGraphql,
+  SiDocker, SiKubernetes, SiVercel, SiLinux, SiGit,
+} from 'react-icons/si'
+import { FaAws } from 'react-icons/fa'
+import type { IconType } from 'react-icons'
 
-const techCategories = [
+interface Tech {
+  name: string
+  icon: IconType
+  color: string
+}
+
+interface TechCategory {
+  title: string
+  color: string
+  technologies: Tech[]
+}
+
+const techCategories: TechCategory[] = [
   {
     title: "AI / ML",
     color: "from-primary to-chart-2",
     technologies: [
-      { name: "Python", icon: "🐍" },
-      { name: "PyTorch", icon: "🔥" },
-      { name: "TensorFlow", icon: "🧠" },
-      { name: "OpenAI", icon: "✨" },
-      { name: "LangChain", icon: "🔗" },
-      { name: "Hugging Face", icon: "🤗" },
-      { name: "CUDA", icon: "⚡" },
-      { name: "OpenCV", icon: "👁️" },
+      { name: "Python",       icon: SiPython,      color: "#3776AB" },
+      { name: "PyTorch",      icon: SiPytorch,     color: "#EE4C2C" },
+      { name: "TensorFlow",   icon: SiTensorflow,  color: "#FF6F00" },
+      { name: "OpenAI",       icon: SiOpenai,      color: "#74AA9C" },
+      { name: "LangChain",    icon: SiLangchain,   color: "#1C3C3C" },
+      { name: "Hugging Face", icon: SiHuggingface, color: "#FFD21E" },
+      { name: "CUDA",         icon: SiNvidia,      color: "#76B900" },
+      { name: "OpenCV",       icon: SiOpencv,      color: "#5C3EE8" },
     ]
   },
   {
     title: "Frontend",
     color: "from-chart-2 to-chart-3",
     technologies: [
-      { name: "React", icon: "⚛️" },
-      { name: "Next.js", icon: "▲" },
-      { name: "TypeScript", icon: "📘" },
-      { name: "Tailwind CSS", icon: "🎨" },
-      { name: "Flutter", icon: "💙" },
-      { name: "Three.js", icon: "🎮" },
+      { name: "React",        icon: SiReact,       color: "#61DAFB" },
+      { name: "Next.js",      icon: SiNextdotjs,   color: "#FFFFFF" },
+      { name: "TypeScript",   icon: SiTypescript,  color: "#3178C6" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "#06B6D4" },
+      { name: "Flutter",      icon: SiFlutter,     color: "#02569B" },
+      { name: "Three.js",     icon: SiThreedotjs,  color: "#FFFFFF" },
     ]
   },
   {
     title: "Backend",
     color: "from-chart-3 to-chart-4",
     technologies: [
-      { name: "Node.js", icon: "🟢" },
-      { name: "FastAPI", icon: "⚡" },
-      { name: "PostgreSQL", icon: "🐘" },
-      { name: "MongoDB", icon: "🍃" },
-      { name: "Redis", icon: "🔴" },
-      { name: "GraphQL", icon: "◈" },
+      { name: "Node.js",    icon: SiNodedotjs,   color: "#339933" },
+      { name: "FastAPI",    icon: SiFastapi,     color: "#009688" },
+      { name: "PostgreSQL", icon: SiPostgresql,  color: "#4169E1" },
+      { name: "MongoDB",    icon: SiMongodb,     color: "#47A248" },
+      { name: "Redis",      icon: SiRedis,       color: "#DC382D" },
+      { name: "GraphQL",    icon: SiGraphql,     color: "#E10098" },
     ]
   },
   {
     title: "Infrastructure",
     color: "from-chart-4 to-primary",
     technologies: [
-      { name: "Docker", icon: "🐳" },
-      { name: "Kubernetes", icon: "☸️" },
-      { name: "AWS", icon: "☁️" },
-      { name: "Vercel", icon: "▲" },
-      { name: "Linux", icon: "🐧" },
-      { name: "Git", icon: "📂" },
+      { name: "Docker",     icon: SiDocker,      color: "#2496ED" },
+      { name: "Kubernetes", icon: SiKubernetes,  color: "#326CE5" },
+      { name: "AWS",        icon: FaAws,               color: "#FF9900" },
+      { name: "Vercel",     icon: SiVercel,      color: "#FFFFFF" },
+      { name: "Linux",      icon: SiLinux,       color: "#FCC624" },
+      { name: "Git",        icon: SiGit,         color: "#F05032" },
     ]
   },
 ]
@@ -130,9 +150,10 @@ export function TechStackSection() {
                       className="group flex items-center gap-3 p-3 rounded-xl bg-background/50 border border-transparent hover:border-primary/30 hover:bg-primary/5 transition-all cursor-default"
                       style={{ animationDelay: `${techIndex * 50}ms` }}
                     >
-                      <span className="text-lg opacity-70 group-hover:opacity-100 transition-opacity">
-                        {tech.icon}
-                      </span>
+                      <tech.icon
+                        className="shrink-0 opacity-80 group-hover:opacity-100 transition-opacity"
+                        style={{ color: tech.color, fontSize: '1.25rem' }}
+                      />
                       <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors">
                         {tech.name}
                       </span>
@@ -155,12 +176,12 @@ export function TechStackSection() {
 
               {/* Orbiting Elements - Pre-calculated positions to avoid hydration mismatch */}
               {[
-                { top: '50%', left: '85%', icon: '⚛️', delay: '0s' },
-                { top: '80.3%', left: '67.5%', icon: '🐍', delay: '0.5s' },
-                { top: '80.3%', left: '32.5%', icon: '▲', delay: '1s' },
-                { top: '50%', left: '15%', icon: '🐳', delay: '1.5s' },
-                { top: '19.7%', left: '32.5%', icon: '🔥', delay: '2s' },
-                { top: '19.7%', left: '67.5%', icon: '☁️', delay: '2.5s' },
+                { top: '50%',   left: '85%',   Icon: SiReact,      color: '#61DAFB', delay: '0s'   },
+                { top: '80.3%', left: '67.5%', Icon: SiPython,     color: '#3776AB', delay: '0.5s' },
+                { top: '80.3%', left: '32.5%', Icon: SiNextdotjs,  color: '#FFFFFF', delay: '1s'   },
+                { top: '50%',   left: '15%',   Icon: SiDocker,     color: '#2496ED', delay: '1.5s' },
+                { top: '19.7%', left: '32.5%', Icon: SiPytorch,    color: '#EE4C2C', delay: '2s'   },
+                { top: '19.7%', left: '67.5%', Icon: FaAws,               color: '#FF9900', delay: '2.5s' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -172,7 +193,7 @@ export function TechStackSection() {
                     animationDelay: item.delay,
                   }}
                 >
-                  <span className="text-lg">{item.icon}</span>
+                  <item.Icon style={{ color: item.color, fontSize: '1.375rem' }} />
                 </div>
               ))}
 

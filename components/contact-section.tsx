@@ -34,7 +34,7 @@ export function ContactSection() {
         playsInline
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0, opacity: 0.2 }}
+        style={{ zIndex: 0, opacity: 0.3 }}
       >
         <source
           src="https://cdn.pixabay.com/video/2018/03/09/14900-259623335_large.mp4"
