@@ -25,8 +25,8 @@ const projects = [
     category: "ai",
     featured: true,
     image: "/images/projects/ai-agent.jpg",
-    // github: "https://github.com/masterAI359/ai-agent",
-    // demoUrl: "https://your-demo-url.com"
+    github: "https://github.com/masterAI359/ai-agent",
+    demoUrl: null,
   },
   {
     title: "AI English Learning System",
@@ -54,7 +54,7 @@ const projects = [
     category: "ai",
     image: "/images/projects/face-recognition.jpg",
     github: "https://github.com/masterAI359/face-recognition",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Crack Detection AI System",
@@ -63,7 +63,7 @@ const projects = [
     category: "ai",
     image: "/images/projects/crack-detection.jpg",
     github: "https://github.com/masterAI359/crack-detection",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "4D Gaussian Splatting Generator",
@@ -73,7 +73,7 @@ const projects = [
     featured: true,
     image: "/images/projects/gaussian-splatting.jpg",
     github: "https://github.com/masterAI359/gaussian-splatting",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Horse Racing Prediction AI",
@@ -82,7 +82,7 @@ const projects = [
     category: "ai",
     image: "/images/projects/horse-racing.jpg",
     github: "https://github.com/masterAI359/horse-racing",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Blueprint Material Estimation",
@@ -91,7 +91,7 @@ const projects = [
     category: "ai",
     image: "/images/projects/blueprint.jpg",
     github: "https://github.com/masterAI359/blueprint",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
 
   // Advanced Graphics / 3D / 4D
@@ -102,7 +102,7 @@ const projects = [
     category: "graphics",
     image: "/images/projects/3d-rendering.jpg",
     github: "https://github.com/masterAI359/3d-rendering",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "4D Gaussian Splatting Viewer",
@@ -111,7 +111,7 @@ const projects = [
     category: "graphics",
     image: "/images/projects/4d-viewer.jpg",
     github: "https://github.com/masterAI359/4d-viewer",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "PCD to PLY Conversion System",
@@ -120,7 +120,7 @@ const projects = [
     category: "graphics",
     image: "/images/projects/point-cloud.jpg",
     github: "https://github.com/masterAI359/point-cloud",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
 
   // Full-Stack Platforms
@@ -132,7 +132,7 @@ const projects = [
     featured: true,
     image: "/images/projects/crowdfunding.jpg",
     github: "https://github.com/masterAI359/crowdfunding",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Marine Tourism Reservation",
@@ -141,7 +141,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/marine-tourism.jpg",
     github: "https://github.com/masterAI359/marine-tourism",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Phone Number Search System",
@@ -150,7 +150,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/phone-search.jpg",
     github: "https://github.com/masterAI359/phone-search",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "eSIM Sales Platform",
@@ -159,7 +159,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/esim.jpg",
     github: "https://github.com/masterAI359/esim",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Corporate Business System",
@@ -168,7 +168,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/corporate-system.jpg",
     github: "https://github.com/masterAI359/corporate-system",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "VPS Hosting Platform",
@@ -177,7 +177,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/vps-hosting.jpg",
     github: "https://github.com/masterAI359/vps-hosting",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
 
   // Apps & Tools
@@ -188,7 +188,7 @@ const projects = [
     category: "apps",
     image: "/images/projects/live-wallpaper.jpg",
     github: "https://github.com/masterAI359/live-wallpaper",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
   {
     title: "Discord Bot with Payments",
@@ -197,7 +197,7 @@ const projects = [
     category: "apps",
     image: "/images/projects/discord-bot.jpg",
     github: "https://github.com/masterAI359/discord-bot",
-    demoUrl: "https://your-demo-url.com"
+    demoUrl: null,
   },
 ]
 

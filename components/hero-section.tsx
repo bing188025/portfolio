@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { TypingEffect } from './typing-effect'
 import { ScatteredTextReveal } from './scattered-text-reveal'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Github, Linkedin } from 'lucide-react'
+import { ArrowRight, Github, Linkedin, Download } from 'lucide-react'
 
 const specialties = [
   "AI Agents",
@@ -156,6 +156,18 @@ export function HeroSection() {
               Hire Me
             </a>
           </Button>
+          <Button
+            asChild
+            size="lg"
+            variant="ghost"
+            className="border border-border/50 hover:border-primary/40 hover:bg-primary/10 px-8 py-6 text-lg text-foreground/70 hover:text-foreground"
+          >
+            {/* Place your resume PDF at /public/resume.pdf */}
+            <a href="/resume.pdf" download="AI-FullStack-Engineer-Resume.pdf">
+              <Download className="mr-2 h-5 w-5" />
+              Resume
+            </a>
+          </Button>
         </div>
 
         {/* Social Links */}
@@ -168,14 +180,18 @@ export function HeroSection() {
           }}
         >
           <a 
-            href="#" 
+            href="https://github.com/masterAI359"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-3 rounded-full glass border border-border hover:border-primary/50 hover:bg-primary/10 transition-all"
             aria-label="GitHub"
           >
             <Github className="h-5 w-5 text-muted-foreground hover:text-foreground" />
           </a>
           <a 
-            href="#" 
+            href="https://linkedin.com/in/masterAI359"
+            target="_blank"
+            rel="noopener noreferrer"
             className="p-3 rounded-full glass border border-border hover:border-primary/50 hover:bg-primary/10 transition-all"
             aria-label="LinkedIn"
           >

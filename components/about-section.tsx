@@ -4,6 +4,7 @@ import { ScrollAnimation } from './scroll-animation'
 import { AnimatedCounter } from './animated-counter'
 import { TiltCard } from './tilt-card'
 import { Brain, Code2, Cpu, Rocket } from 'lucide-react'
+import Image from 'next/image'
 
 const stats = [
   { value: 6, suffix: "+", label: "Years Experience" },
@@ -99,6 +100,15 @@ export function AboutSection() {
               Crafting the Future with
               <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> AI & Code</span>
             </h2>
+
+            {/* Avatar */}
+            <div className="flex justify-center mb-8">
+              <div className="relative w-28 h-28 rounded-full ring-2 ring-primary/40 ring-offset-4 ring-offset-background shadow-xl shadow-primary/20 overflow-hidden bg-primary/15 flex items-center justify-center">
+                {/* <span className="text-primary text-3xl font-bold select-none">AI</span> */}
+                <Image src="/images/avatar.png" alt="Avatar" width={112} height={112} />
+              </div>
+            </div>
+
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
               With over 6 years of experience, I specialize in building production-ready AI systems 
               and full-stack applications that solve real-world problems at scale.

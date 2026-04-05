@@ -12,28 +12,41 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono"
 });
 
+// Update this to your deployed domain so OG/Twitter image URLs resolve correctly
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://masterai.dev'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: 'AI Full-Stack Engineer | Portfolio',
   description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
-  generator: 'v0.app',
   keywords: ['AI Engineer', 'Full-Stack Developer', 'Machine Learning', 'LLM', 'Computer Vision', 'React', 'Next.js', 'Python'],
-  authors: [{ name: 'AI Full-Stack Engineer' }],
-  icons: {
-    icon: [
+  authors: [{ name: 'masterAI' }],
+  openGraph: {
+    type: 'website',
+    title: 'AI Full-Stack Engineer | Portfolio',
+    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    images: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/opengraph-image',
+        width: 1200,
+        height: 630,
+        alt: 'AI Full-Stack Engineer Portfolio',
       },
     ],
-    apple: '/apple-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Full-Stack Engineer | Portfolio',
+    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    images: ['/opengraph-image'],
+    creator: '@masterAI359',
+  },
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/apple-icon',
   },
 }
 

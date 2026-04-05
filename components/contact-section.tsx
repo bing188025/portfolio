@@ -1,30 +1,33 @@
 "use client"
 
+import { useForm, ValidationError } from '@formspree/react'
 import { ScrollAnimation } from './scroll-animation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { 
   Mail, 
-  Phone, 
   Linkedin, 
   Github, 
   Facebook, 
   Instagram,
   Send,
-  ArrowUpRight
+  ArrowUpRight,
+  CheckCircle2,
+  AlertCircle,
 } from 'lucide-react'
 
 const socialLinks = [
-  { name: "Email", icon: Mail, href: "mailto:hello@example.com", label: "hello@example.com" },
-  { name: "Phone", icon: Phone, href: "tel:+1234567890", label: "+1 (234) 567-890" },
-  { name: "LinkedIn", icon: Linkedin, href: "#", label: "linkedin.com/in/developer" },
-  { name: "GitHub", icon: Github, href: "#", label: "github.com/developer" },
-  { name: "Facebook", icon: Facebook, href: "#", label: "facebook.com/developer" },
-  { name: "Instagram", icon: Instagram, href: "#", label: "@developer" },
+  { name: "Email", icon: Mail, href: "mailto:contact@masterai.dev", label: "contact@masterai.dev" },
+  { name: "GitHub", icon: Github, href: "https://github.com/masterAI359", label: "github.com/masterAI359" },
+  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/masterAI359", label: "linkedin.com/in/masterAI359" },
+  { name: "Facebook", icon: Facebook, href: "https://facebook.com/masterAI359", label: "facebook.com/masterAI359" },
+  { name: "Instagram", icon: Instagram, href: "https://instagram.com/masterAI359", label: "@masterAI359" },
 ]
 
 export function ContactSection() {
+  const [state, handleSubmit] = useForm('xwvwavan')
+
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
       {/* Hand scrolling on smartphone at night — Pixabay #169445 (man's hand, dark room, 4K, no face) */}
@@ -96,59 +99,85 @@ export function ContactSection() {
           <ScrollAnimation delay={100}>
             <div className="glass border border-border/60 rounded-2xl p-6 lg:p-8 shadow-xl shadow-black/30">
               <h3 className="text-xl font-semibold mb-6 text-foreground">Send a Message</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+              {state.succeeded ? (
+                <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
+                  <CheckCircle2 className="h-14 w-14 text-green-400" />
+                  <p className="text-lg font-semibold text-foreground">Message sent!</p>
+                  <p className="text-foreground/60 text-sm">{"I'll"} get back to you within 24 hours.</p>
+                </div>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Name
+                      </label>
+                      <Input 
+                        id="name"
+                        name="name"
+                        required
+                        placeholder="Your name"
+                        className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
+                      />
+                      <ValidationError field="name" errors={state.errors} className="mt-1 text-xs text-red-400" />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Email
+                      </label>
+                      <Input 
+                        id="email"
+                        name="email"
+                        type="email"
+                        required
+                        placeholder="you@example.com"
+                        className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
+                      />
+                      <ValidationError field="email" errors={state.errors} className="mt-1 text-xs text-red-400" />
+                    </div>
+                  </div>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">
-                      Name
+                    <label htmlFor="subject" className="block text-sm font-medium text-foreground/70 mb-2">
+                      Subject
                     </label>
                     <Input 
-                      id="name"
-                      placeholder="Your name"
+                      id="subject"
+                      name="subject"
+                      placeholder="Project inquiry"
                       className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-2">
-                      Email
+                    <label htmlFor="message" className="block text-sm font-medium text-foreground/70 mb-2">
+                      Message
                     </label>
-                    <Input 
-                      id="email"
-                      type="email"
-                      placeholder="you@example.com"
-                      className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
+                    <Textarea 
+                      id="message"
+                      name="message"
+                      required
+                      placeholder="Tell me about your project..."
+                      rows={5}
+                      className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30 resize-none"
                     />
+                    <ValidationError field="message" errors={state.errors} className="mt-1 text-xs text-red-400" />
                   </div>
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-foreground/70 mb-2">
-                    Subject
-                  </label>
-                  <Input 
-                    id="subject"
-                    placeholder="Project inquiry"
-                    className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground/70 mb-2">
-                    Message
-                  </label>
-                  <Textarea 
-                    id="message"
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30 resize-none"
-                  />
-                </div>
-                <Button 
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg group shadow-lg shadow-primary/20"
-                >
-                  Send Message
-                  <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </form>
+                  {state.errors && (
+                    <div className="flex items-center gap-2 text-red-400 text-sm">
+                      <AlertCircle className="h-4 w-4 shrink-0" />
+                      <ValidationError errors={state.errors} />
+                    </div>
+                  )}
+                  <Button 
+                    type="submit"
+                    disabled={state.submitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg group shadow-lg shadow-primary/20 disabled:opacity-60"
+                  >
+                    {state.submitting ? 'Sending...' : 'Send Message'}
+                    <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </form>
+              )}
             </div>
           </ScrollAnimation>
 
@@ -168,6 +197,8 @@ export function ContactSection() {
                   <a
                     key={link.name}
                     href={link.href}
+                    target={link.href.startsWith('mailto') ? undefined : '_blank'}
+                    rel={link.href.startsWith('mailto') ? undefined : 'noopener noreferrer'}
                     className="group flex items-center gap-4 p-4 rounded-xl glass border border-border/60 hover:border-primary/40 transition-all shadow-md shadow-black/20"
                   >
                     <div className="p-3 rounded-xl bg-primary/15 text-primary group-hover:bg-primary/25 transition-colors shadow-sm shadow-primary/10">

@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const navLinks = [
   { href: "#about", label: "About" },
+  { href: "#services", label: "Services" },
   { href: "#projects", label: "Projects" },
   { href: "#tech", label: "Tech Stack" },
   { href: "#contact", label: "Contact" },
@@ -37,10 +39,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center group-hover:bg-primary/25 transition-colors shadow-md shadow-primary/10">
-              <span className="text-primary font-bold text-lg">AI</span>
+            <div className="w-10 h-10 flex items-center justify-center group-hover:opacity-90 transition-opacity">
+              <Image src="/logo.png" alt="masterAI Logo" width={40} height={40} className="object-contain" priority />
             </div>
-            <span className="font-semibold text-foreground hidden sm:block">Developer</span>
+            <span className="font-semibold text-foreground hidden sm:block">masterAI</span>
           </a>
 
           {/* Desktop Navigation */}
