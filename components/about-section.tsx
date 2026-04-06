@@ -104,8 +104,8 @@ export function AboutSection() {
             {/* Avatar */}
             <div className="flex justify-center mb-8">
               <div className="relative w-28 h-28 rounded-full ring-2 ring-primary/40 ring-offset-4 ring-offset-background shadow-xl shadow-primary/20 overflow-hidden bg-primary/15 flex items-center justify-center">
-                {/* <span className="text-primary text-3xl font-bold select-none">AI</span> */}
-                <Image src="/images/avatar.png" alt="Avatar" width={112} height={112} />
+                <span className="text-primary text-3xl font-bold select-none">AI</span>
+                {/* <Image src="/images/avatar.png" alt="Avatar" width={112} height={112} /> */}
               </div>
             </div>
 
