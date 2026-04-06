@@ -17,7 +17,7 @@ const services = [
       "Model fine-tuning & evaluation",
       "AI API design & deployment",
     ],
-    highlight: false,
+    highlight: true,
   },
   {
     icon: Bot,
@@ -41,7 +41,7 @@ const services = [
       "Database design (PostgreSQL, MongoDB)",
       "Payment integrations (Stripe)",
     ],
-    highlight: false,
+    highlight: true,
   },
   {
     icon: Cpu,
@@ -53,7 +53,7 @@ const services = [
       "3D / 4D Gaussian splatting",
       "Medical & industrial inspection AI",
     ],
-    highlight: false,
+    highlight: true,
   },
 ]
 

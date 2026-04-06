@@ -44,8 +44,8 @@ const projects = [
     category: "ai",
     featured: true,
     image: "/images/projects/healthcare-ai.jpg",
-    github: "https://github.com/masterAI359/care",
-    demoUrl: "https://hapiken.jp/"
+    github: "https://github.com/masterAI359/health-agent",
+    demoUrl: ""
   },
   {
     title: "Face Recognition Library",
@@ -53,7 +53,7 @@ const projects = [
     tech: ["Python", "OpenCV", "dlib", "TensorFlow"],
     category: "ai",
     image: "/images/projects/face-recognition.jpg",
-    github: "https://github.com/masterAI359/face-recognition",
+    github: null,
     demoUrl: null,
   },
   {
@@ -62,7 +62,7 @@ const projects = [
     tech: ["Python", "YOLO", "PyTorch", "OpenCV"],
     category: "ai",
     image: "/images/projects/crack-detection.jpg",
-    github: "https://github.com/masterAI359/crack-detection",
+    github: "https://github.com/masterAI359/crack_detection",
     demoUrl: null,
   },
   {
@@ -72,7 +72,7 @@ const projects = [
     category: "ai",
     featured: true,
     image: "/images/projects/gaussian-splatting.jpg",
-    github: "https://github.com/masterAI359/gaussian-splatting",
+    github: null,
     demoUrl: null,
   },
   {
@@ -81,7 +81,7 @@ const projects = [
     tech: ["Python", "XGBoost", "Feature Engineering", "API"],
     category: "ai",
     image: "/images/projects/horse-racing.jpg",
-    github: "https://github.com/masterAI359/horse-racing",
+    github: null,
     demoUrl: null,
   },
   {
@@ -90,7 +90,7 @@ const projects = [
     tech: ["Python", "Computer Vision", "OCR", "ML"],
     category: "ai",
     image: "/images/projects/blueprint.jpg",
-    github: "https://github.com/masterAI359/blueprint",
+    github: null,
     demoUrl: null,
   },
 
@@ -120,7 +120,7 @@ const projects = [
     category: "graphics",
     image: "/images/projects/point-cloud.jpg",
     github: "https://github.com/masterAI359/point-cloud",
-    demoUrl: null,
+    demoUrl: "https://4dgs.jp",
   },
 
   // Full-Stack Platforms
@@ -132,7 +132,7 @@ const projects = [
     featured: true,
     image: "/images/projects/crowdfunding.jpg",
     github: "https://github.com/masterAI359/crowdfunding",
-    demoUrl: null,
+    demoUrl: "https://tsukurutv.com",
   },
   {
     title: "Marine Tourism Reservation",
@@ -177,7 +177,7 @@ const projects = [
     category: "fullstack",
     image: "/images/projects/vps-hosting.jpg",
     github: "https://github.com/masterAI359/vps-hosting",
-    demoUrl: null,
+    demoUrl: "https://offshorehosting.plus",
   },
 
   // Apps & Tools
