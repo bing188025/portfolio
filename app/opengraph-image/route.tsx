@@ -1,10 +1,11 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { SITE_CONFIG } from '@/lib/config'
 
 export const runtime = 'nodejs'
 
-export const alt = 'AI Full-Stack Engineer Portfolio'
+export const alt = 'DevForge Studio software development services'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -16,7 +17,7 @@ export async function GET() {
     (
       <div
         style={{
-          background: '#0a0f1a',
+          background: '#050814',
           width: '100%',
           height: '100%',
           display: 'flex',
@@ -26,127 +27,44 @@ export async function GET() {
           padding: '80px',
           position: 'relative',
           fontFamily: 'sans-serif',
+          color: '#fff',
         }}
       >
-        {/* Grid overlay */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
             backgroundImage:
-              'linear-gradient(rgba(56,189,248,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.07) 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
+              'linear-gradient(rgba(56,189,248,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,0.08) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
           }}
         />
-
-        {/* Glow orb */}
         <div
           style={{
             position: 'absolute',
-            top: '-100px',
+            top: '-140px',
             right: '-100px',
-            width: '500px',
-            height: '500px',
+            width: '560px',
+            height: '560px',
             borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(56,189,248,0.22) 0%, transparent 70%)',
           }}
         />
-
-        {/* Badge */}
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '10px',
-            background: 'rgba(56,189,248,0.1)',
-            border: '1px solid rgba(56,189,248,0.3)',
-            borderRadius: '100px',
-            padding: '8px 20px',
-            marginBottom: '32px',
-          }}
-        >
-          <div
-            style={{
-              width: '10px',
-              height: '10px',
-              borderRadius: '50%',
-              background: '#4ade80',
-            }}
-          />
-          <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '18px' }}>
-            Available for new projects
-          </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginBottom: '42px' }}>
+          <img src={logoBase64} alt="DevForge Studio logo" width={76} height={76} style={{ objectFit: 'contain' }} />
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span style={{ fontSize: '30px', fontWeight: 800 }}>{SITE_CONFIG.name}</span>
+            <span style={{ fontSize: '18px', color: 'rgba(255,255,255,0.62)' }}>Software development partner</span>
+          </div>
         </div>
-
-        {/* Main title */}
-        <div
-          style={{
-            fontSize: '72px',
-            fontWeight: 800,
-            color: '#ffffff',
-            lineHeight: 1.1,
-            marginBottom: '20px',
-            letterSpacing: '-2px',
-          }}
-        >
-          AI Full-Stack Engineer
+        <div style={{ fontSize: '68px', fontWeight: 850, lineHeight: 1.06, maxWidth: '940px' }}>
+          Plan, build, launch, and maintain software products.
         </div>
-
-        {/* Subtitle */}
-        <div
-          style={{
-            fontSize: '36px',
-            fontWeight: 600,
-            color: '#38bdf8',
-            marginBottom: '28px',
-          }}
-        >
-          Building Intelligent Systems That Scale
-        </div>
-
-        {/* Specialties */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '16px',
-            flexWrap: 'wrap',
-          }}
-        >
-          {['AI Agents', 'LLM Systems', 'Computer Vision', 'Full-Stack Platforms'].map((s) => (
-            <div
-              key={s}
-              style={{
-                background: 'rgba(56,189,248,0.08)',
-                border: '1px solid rgba(56,189,248,0.25)',
-                borderRadius: '8px',
-                padding: '8px 18px',
-                color: 'rgba(255,255,255,0.65)',
-                fontSize: '20px',
-              }}
-            >
-              {s}
-            </div>
-          ))}
-        </div>
-
-        {/* Logo badge bottom right */}
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '60px',
-            right: '80px',
-            width: '100px',
-            height: '100px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={logoBase64} alt="Logo" width={100} height={100} style={{ objectFit: 'contain' }} />
+        <div style={{ marginTop: '28px', fontSize: '30px', color: '#38bdf8', fontWeight: 650 }}>
+          Web · Mobile · AI / LLM · Backend · Automation · Infrastructure
         </div>
       </div>
     ),
-    { ...size }
+    { ...size },
   )
 }

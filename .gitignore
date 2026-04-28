@@ -5,6 +5,7 @@ __v0_jsx-dev-runtime.ts
 .snowflake/
 .v0-trash/
 .vercel/
+.playwright-cli/
 next.user-config.*
 
 # Environment variables
@@ -15,3 +16,6 @@ node_modules
 .next/
 .DS_Store
 .vercel
+.playwright-cli
+.codex
+tsconfig.tsbuildinfo

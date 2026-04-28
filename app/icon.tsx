@@ -21,8 +21,7 @@ export default function Icon() {
           justifyContent: 'center',
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoBase64} alt="Logo" width={32} height={32} style={{ objectFit: 'contain' }} />
+        <img src={logoBase64} alt="DevForge Studio logo" width={32} height={32} style={{ objectFit: 'contain' }} />
       </div>
     ),
     { ...size }
