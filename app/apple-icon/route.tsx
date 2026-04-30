@@ -24,7 +24,7 @@ export async function GET() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoBase64} alt="Logo" width={150} height={150} style={{ objectFit: 'contain' }} />
+        <img src={logoBase64} alt="DevForge Studio logo" width={150} height={150} style={{ objectFit: 'contain' }} />
       </div>
     ),
     { ...size }

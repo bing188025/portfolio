@@ -1,45 +1,42 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, Geist_Mono } from 'next/font/google'
+import type { ReactNode } from 'react'
 import { Analytics } from '@vercel/analytics/next'
+import { Footer } from '@/components/footer'
+import { Navigation } from '@/components/navigation'
+import { SITE_CONFIG } from '@/lib/config'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: "--font-inter"
-});
-const geistMono = Geist_Mono({ 
-  subsets: ["latin"],
-  variable: "--font-geist-mono"
-});
-
-// Update this to your deployed domain so OG/Twitter image URLs resolve correctly
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://masterai.dev'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? SITE_CONFIG.url
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'AI Full-Stack Engineer | Portfolio',
-  description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
-  keywords: ['AI Engineer', 'Full-Stack Developer', 'Machine Learning', 'LLM', 'Computer Vision', 'React', 'Next.js', 'Python'],
-  authors: [{ name: 'masterAI' }],
+  title: {
+    default: SITE_CONFIG.title,
+    template: `%s | ${SITE_CONFIG.name}`,
+  },
+  description: SITE_CONFIG.description,
+  keywords: ['Software Development Agency', 'Web Development', 'Mobile App Development', 'AI Development', 'LLM', 'Backend APIs', 'Automation', 'DevOps', 'Consulting'],
+  authors: [{ name: SITE_CONFIG.name }],
   openGraph: {
     type: 'website',
-    title: 'AI Full-Stack Engineer | Portfolio',
-    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    siteName: SITE_CONFIG.name,
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'AI Full-Stack Engineer Portfolio',
+        alt: `${SITE_CONFIG.name} software development services`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Full-Stack Engineer | Portfolio',
-    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: ['/opengraph-image'],
-    creator: '@masterAI359',
+    creator: SITE_CONFIG.twitterHandle,
   },
   icons: {
     icon: [
@@ -59,13 +56,17 @@ export const viewport: Viewport = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}>
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+    <html lang="en" className="dark" data-scroll-behavior="smooth" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-background text-foreground">
+        <Navigation />
+        <main className="min-h-screen overflow-x-hidden bg-background">
+          {children}
+        </main>
+        <Footer />
+        {process.env.VERCEL === '1' && <Analytics />}
       </body>
     </html>
   )

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
+import { SITE_CONFIG } from '@/lib/config'
 
-// Update BASE_URL to your deployed domain
-const BASE_URL = 'https://masterai.dev'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? SITE_CONFIG.url
 
 export default function robots(): MetadataRoute.Robots {
   return {
