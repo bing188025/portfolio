@@ -6,11 +6,12 @@ import { Button } from '@/components/ui/button'
 import {
   ContentSection,
   CTASection,
+  EngagementModelCards,
   IconBadge,
   PageHero,
   SectionHeading,
 } from '@/components/marketing'
-import { services } from '@/lib/site-data'
+import { engagementModels, services } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Services',
@@ -22,9 +23,10 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Software development services for teams that need practical delivery."
-        description="Bring us into a focused build, an existing product, a new AI workflow, or a long-term improvement roadmap. We help clarify the work, build the right system, and support it after launch."
+        title="Flexible software delivery models for product, AI, and operations work."
+        description="Start with discovery, move into a focused build, add AI or automation, or retain a team for ongoing product delivery. Each model is designed to make scope, timeline, risk, and ownership clear."
         compact
+        imageSrc="/images/projects/vps-hosting.jpg"
         actions={
           <>
             <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -39,8 +41,17 @@ export default function ServicesPage() {
 
       <ContentSection>
         <SectionHeading
+          eyebrow="Engagement models"
+          title="How clients typically work with us."
+          description="Professional service platforms should make buying paths clear. These models help you choose the right starting point before we prepare a tailored estimate."
+        />
+        <EngagementModelCards models={engagementModels} />
+      </ContentSection>
+
+      <ContentSection className="pt-0">
+        <SectionHeading
           eyebrow="Capabilities"
-          title="Choose the support your project needs."
+          title="Service capabilities that can combine into one delivery plan."
           description="Each service can stand alone or combine into a full product engagement covering planning, design, implementation, deployment, and maintenance."
         />
         <div className="grid gap-6 lg:grid-cols-2">

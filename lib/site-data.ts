@@ -1,6 +1,7 @@
 import { SITE_CONFIG } from '@/lib/config'
 
 export type IconName =
+  | 'BarChart3'
   | 'Code2'
   | 'Smartphone'
   | 'Brain'
@@ -13,6 +14,8 @@ export type IconName =
   | 'ClipboardCheck'
   | 'Layers'
   | 'LifeBuoy'
+  | 'Target'
+  | 'Users'
 
 export interface Service {
   slug: string
@@ -42,6 +45,20 @@ export interface Strength {
   title: string
   summary: string
   icon: IconName
+}
+
+export interface ProofMetric {
+  value: string
+  label: string
+  summary: string
+}
+
+export interface EngagementModel {
+  title: string
+  summary: string
+  bestFor: string
+  duration: string
+  includes: string[]
 }
 
 export interface Faq {
@@ -133,6 +150,67 @@ export const services: Service[] = [
   },
 ]
 
+export const proofMetrics: ProofMetric[] = [
+  {
+    value: '30+',
+    label: 'project types delivered',
+    summary: 'Web platforms, AI workflows, automation, operations tools, mobile apps, and backend systems.',
+  },
+  {
+    value: '6+',
+    label: 'years building software',
+    summary: 'Experience across planning, implementation, launch support, and long-term product iteration.',
+  },
+  {
+    value: '8',
+    label: 'core service lines',
+    summary: 'A practical coverage model for teams that need more than a single narrow development skill.',
+  },
+  {
+    value: '1 day',
+    label: 'inquiry response target',
+    summary: 'Project requests are reviewed with clear next-step guidance before a build is proposed.',
+  },
+]
+
+export const engagementModels: EngagementModel[] = [
+  {
+    title: 'Discovery Sprint',
+    summary: 'Clarify scope, risks, users, architecture, and estimate path before committing to a build.',
+    bestFor: 'Early ideas, unclear scope, inherited products',
+    duration: '1-2 weeks',
+    includes: ['Stakeholder intake', 'Feature and risk map', 'Architecture direction', 'Delivery estimate path'],
+  },
+  {
+    title: 'MVP / Product Build',
+    summary: 'Plan, design, implement, and launch a focused product version with production foundations.',
+    bestFor: 'New SaaS, portals, booking systems, internal tools',
+    duration: '4-12+ weeks',
+    includes: ['UX and product flow', 'Frontend and backend build', 'Integrations', 'Launch support'],
+  },
+  {
+    title: 'AI & Automation Sprint',
+    summary: 'Add practical AI, LLM, data-processing, or workflow automation capabilities to a business process.',
+    bestFor: 'Knowledge search, assistants, reporting, operations',
+    duration: '2-6 weeks',
+    includes: ['Use-case design', 'Prototype and evaluation', 'Workflow integration', 'Human review path'],
+  },
+  {
+    title: 'Dedicated Product Team',
+    summary: 'Extend your team with ongoing product, engineering, QA, and technical leadership capacity.',
+    bestFor: 'Growing products, roadmap execution, technical debt',
+    duration: 'Monthly',
+    includes: ['Sprint planning', 'Feature delivery', 'Code review', 'Progress reporting'],
+  },
+  {
+    title: 'Maintenance Retainer',
+    summary: 'Keep existing systems reliable, secure, updated, and ready for incremental improvements.',
+    bestFor: 'Live products, legacy codebases, support needs',
+    duration: 'Monthly',
+    includes: ['Bug fixes', 'Dependency updates', 'Performance work', 'Small improvements'],
+  },
+]
+
 export const strengths: Strength[] = [
   {
     title: 'Business-first delivery',
@@ -153,6 +231,29 @@ export const strengths: Strength[] = [
     title: 'Security-aware foundations',
     summary: 'Authentication, permissions, data handling, and infrastructure choices are considered from the start.',
     icon: 'ShieldCheck',
+  },
+]
+
+export const deliveryPrinciples: Strength[] = [
+  {
+    title: 'Scope before speed',
+    summary: 'We define the smallest useful release, unresolved decisions, and acceptance criteria before development accelerates.',
+    icon: 'Target',
+  },
+  {
+    title: 'Senior review loops',
+    summary: 'Architecture, implementation, and release readiness are reviewed so shortcuts do not become hidden operating costs.',
+    icon: 'ShieldCheck',
+  },
+  {
+    title: 'Weekly operating rhythm',
+    summary: 'Clients get visible progress, blockers, next decisions, and working increments instead of vague status updates.',
+    icon: 'BarChart3',
+  },
+  {
+    title: 'Ownership-friendly handoff',
+    summary: 'Code, environments, documentation, and implementation context are prepared for long-term ownership.',
+    icon: 'Users',
   },
 ]
 

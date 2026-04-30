@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import {
   Brain,
+  BarChart3,
   CheckCircle2,
   ClipboardCheck,
   Cloud,
@@ -16,6 +17,8 @@ import {
   Smartphone,
   Workflow,
   ArrowRight,
+  Target,
+  Users,
 } from 'lucide-react'
 
 import { Badge } from '@/components/ui/badge'
@@ -27,9 +30,19 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { cn } from '@/lib/utils'
-import type { CaseStudy, Faq, IconName, ProcessStep, Service, Strength } from '@/lib/site-data'
+import type {
+  CaseStudy,
+  EngagementModel,
+  Faq,
+  IconName,
+  ProcessStep,
+  ProofMetric,
+  Service,
+  Strength,
+} from '@/lib/site-data'
 
 const iconMap = {
+  BarChart3,
   Brain,
   CheckCircle2,
   ClipboardCheck,
@@ -42,6 +55,8 @@ const iconMap = {
   Server,
   ShieldCheck,
   Smartphone,
+  Target,
+  Users,
   Workflow,
 }
 
@@ -72,32 +87,142 @@ export function PageHero({
   description,
   actions,
   compact = false,
+  imageSrc = '/images/projects/corporate-system.jpg',
+  children,
 }: {
   eyebrow: string
   title: string
   description: string
   actions?: ReactNode
   compact?: boolean
+  imageSrc?: string
+  children?: ReactNode
 }) {
   return (
-    <section className={cn('relative overflow-hidden', compact ? 'pt-32 pb-16' : 'pt-36 pb-24 lg:pt-44 lg:pb-32')}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.14),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(124,58,237,0.12),transparent_28%),linear-gradient(180deg,rgba(5,8,20,0.96),rgba(5,8,20,1))]" />
+    <section className={cn('relative overflow-hidden', compact ? 'pt-32 pb-16' : 'pt-36 pb-20 lg:pt-44 lg:pb-28')}>
+      <Image
+        src={imageSrc}
+        alt=""
+        fill
+        priority={!compact}
+        sizes="100vw"
+        className="object-cover opacity-24"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(56,189,248,0.16),transparent_32%),radial-gradient(circle_at_80%_10%,rgba(124,58,237,0.12),transparent_28%),linear-gradient(180deg,rgba(5,8,20,0.82),rgba(5,8,20,0.98)_60%,rgba(5,8,20,1))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(56,189,248,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(56,189,248,0.045)_1px,transparent_1px)] bg-[size:72px_72px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_72%)]" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl">
-          <Badge className="mb-6 border-primary/30 bg-primary/10 text-primary" variant="outline">
-            {eyebrow}
-          </Badge>
-          <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-            {title}
-          </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
-            {description}
-          </p>
-          {actions && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{actions}</div>}
+        <div className={cn('grid gap-10', children ? 'lg:grid-cols-[1.05fr_0.95fr] lg:items-center' : 'max-w-4xl')}>
+          <div>
+            <Badge className="mb-6 border-primary/30 bg-primary/10 text-primary" variant="outline">
+              {eyebrow}
+            </Badge>
+            <h1 className="text-balance text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-muted-foreground sm:text-xl">
+              {description}
+            </p>
+            {actions && <div className="mt-8 flex flex-col gap-3 sm:flex-row">{actions}</div>}
+          </div>
+          {children && <div className="relative hidden lg:block">{children}</div>}
         </div>
       </div>
     </section>
+  )
+}
+
+export function HeroDeliveryPanel() {
+  const lanes = [
+    ['Intake', 'Goals, users, budget, timeline', 'Complete'],
+    ['Architecture', 'API, data, AI, infrastructure', 'In review'],
+    ['Delivery', 'Sprints, QA, launch checklist', 'Scheduled'],
+  ]
+
+  return (
+    <div className="relative">
+      <div className="absolute -inset-8 rounded-full bg-primary/20 blur-3xl" />
+      <div className="relative overflow-hidden rounded-3xl border border-primary/25 bg-background/75 p-5 shadow-2xl shadow-black/40 backdrop-blur-xl">
+        <div className="mb-5 flex items-center justify-between border-b border-border/60 pb-4">
+          <div>
+            <p className="text-xs font-medium uppercase tracking-wider text-primary">Delivery board</p>
+            <h2 className="mt-1 text-xl font-semibold text-foreground">Project estimate pathway</h2>
+          </div>
+          <span className="rounded-full bg-green-400/15 px-3 py-1 text-xs font-medium text-green-300">
+            1-day response
+          </span>
+        </div>
+        <div className="space-y-3">
+          {lanes.map(([title, description, status]) => (
+            <div key={title} className="rounded-2xl border border-border/50 bg-card/60 p-4">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-medium text-foreground">{title}</h3>
+                  <p className="mt-1 text-xs text-muted-foreground">{description}</p>
+                </div>
+                <span className="rounded-full border border-primary/25 px-3 py-1 text-xs text-primary">
+                  {status}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="mt-5 grid grid-cols-3 gap-3">
+          {[
+            ['Scope', 'Mapped'],
+            ['Risk', 'Visible'],
+            ['Launch', 'Planned'],
+          ].map(([label, value]) => (
+            <div key={label} className="rounded-xl border border-border/50 bg-background/50 p-3 text-center">
+              <div className="text-sm font-semibold text-foreground">{value}</div>
+              <div className="mt-1 text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export function ProofMetricGrid({ metrics }: { metrics: ProofMetric[] }) {
+  return (
+    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {metrics.map((metric) => (
+        <article key={metric.label} className="rounded-2xl border border-border/60 bg-card/55 p-6">
+          <div className="text-3xl font-semibold tracking-tight text-primary">{metric.value}</div>
+          <h3 className="mt-3 text-base font-semibold text-foreground">{metric.label}</h3>
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">{metric.summary}</p>
+        </article>
+      ))}
+    </div>
+  )
+}
+
+export function EngagementModelCards({ models }: { models: EngagementModel[] }) {
+  return (
+    <div className="grid gap-5 lg:grid-cols-3">
+      {models.map((model) => (
+        <article key={model.title} className="flex h-full flex-col rounded-2xl border border-border/60 bg-card/55 p-6 shadow-xl shadow-black/20">
+          <div className="flex items-start justify-between gap-4">
+            <h3 className="text-xl font-semibold text-foreground">{model.title}</h3>
+            <span className="rounded-full border border-primary/25 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+              {model.duration}
+            </span>
+          </div>
+          <p className="mt-3 text-sm leading-6 text-muted-foreground">{model.summary}</p>
+          <div className="mt-5 rounded-xl border border-border/50 bg-background/45 p-3 text-xs leading-5 text-foreground/70">
+            <span className="font-medium text-foreground">Best for:</span> {model.bestFor}
+          </div>
+          <ul className="mt-5 space-y-2">
+            {model.includes.map((item) => (
+              <li key={item} className="flex gap-2 text-sm text-foreground/70">
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
   )
 }
 
