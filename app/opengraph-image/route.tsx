@@ -1,10 +1,11 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { SITE_CONFIG } from '@/lib/config'
 
 export const runtime = 'nodejs'
 
-export const alt = 'AI Full-Stack Engineer Portfolio'
+export const alt = `${SITE_CONFIG.name} software development services`
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -39,19 +40,6 @@ export async function GET() {
           }}
         />
 
-        {/* Glow orb */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '-100px',
-            right: '-100px',
-            width: '500px',
-            height: '500px',
-            borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(56,189,248,0.18) 0%, transparent 70%)',
-          }}
-        />
-
         {/* Badge */}
         <div
           style={{
@@ -74,7 +62,7 @@ export async function GET() {
             }}
           />
           <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '18px' }}>
-            Available for new projects
+            Software development partner
           </span>
         </div>
 
@@ -86,10 +74,10 @@ export async function GET() {
             color: '#ffffff',
             lineHeight: 1.1,
             marginBottom: '20px',
-            letterSpacing: '-2px',
+            letterSpacing: 0,
           }}
         >
-          AI Full-Stack Engineer
+          {SITE_CONFIG.name}
         </div>
 
         {/* Subtitle */}
@@ -101,7 +89,7 @@ export async function GET() {
             marginBottom: '28px',
           }}
         >
-          Building Intelligent Systems That Scale
+          Web, AI, backend, automation, and cloud delivery
         </div>
 
         {/* Specialties */}
@@ -112,7 +100,7 @@ export async function GET() {
             flexWrap: 'wrap',
           }}
         >
-          {['AI Agents', 'LLM Systems', 'Computer Vision', 'Full-Stack Platforms'].map((s) => (
+          {['Web Platforms', 'AI Workflows', 'Backend Systems', 'Automation'].map((s) => (
             <div
               key={s}
               style={{

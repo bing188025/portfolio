@@ -4,34 +4,33 @@ import { ScrollAnimation } from './scroll-animation'
 import { AnimatedCounter } from './animated-counter'
 import { TiltCard } from './tilt-card'
 import { Brain, Code2, Cpu, Rocket } from 'lucide-react'
-import Image from 'next/image'
 
 const stats = [
-  { value: 6, suffix: "+", label: "Years Experience" },
-  { value: 30, suffix: "+", label: "Projects Delivered" },
-  { value: 15, suffix: "+", label: "Technologies" },
+  { value: 6, suffix: "+", label: "Years building software" },
+  { value: 30, suffix: "+", label: "Project types delivered" },
+  { value: 8, suffix: "", label: "Core service lines" },
 ]
 
 const capabilities = [
   {
     icon: Brain,
-    title: "AI System Architecture",
-    description: "Designing and implementing scalable AI systems with LLMs, RAG pipelines, and intelligent agents."
+    title: "AI workflow strategy",
+    description: "We turn AI ideas into measurable workflows with data boundaries, human review paths, and production-ready integrations."
   },
   {
     icon: Code2,
-    title: "Full-Stack Development",
-    description: "Building modern web applications with React, Next.js, and robust backend systems."
+    title: "Product engineering",
+    description: "We build modern web products, dashboards, portals, and internal tools with maintainable frontend and backend foundations."
   },
   {
     icon: Cpu,
-    title: "Automation & Agents",
-    description: "Creating autonomous AI agents that handle complex workflows and decision-making."
+    title: "Automation systems",
+    description: "We connect business systems, reduce manual work, and create reliable automations around real operational processes."
   },
   {
     icon: Rocket,
-    title: "Scalable Infrastructure",
-    description: "Deploying production-ready systems with Docker, cloud platforms, and CI/CD pipelines."
+    title: "Launch and support",
+    description: "We prepare software for deployment, monitoring, handoff, maintenance, and future product iteration."
   }
 ]
 
@@ -95,23 +94,20 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">About Me</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">Delivery Partner</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
-              Crafting the Future with
-              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> AI & Code</span>
+              Senior engineering support for
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> practical business software</span>
             </h2>
 
-            {/* Avatar */}
             <div className="flex justify-center mb-8">
               <div className="relative w-28 h-28 rounded-full ring-2 ring-primary/40 ring-offset-4 ring-offset-background shadow-xl shadow-primary/20 overflow-hidden bg-primary/15 flex items-center justify-center">
-                <span className="text-primary text-3xl font-bold select-none">AI</span>
-                {/* <Image src="/images/avatar.png" alt="Avatar" width={112} height={112} /> */}
+                <span className="text-primary text-3xl font-bold select-none">DF</span>
               </div>
             </div>
 
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
-              With over 6 years of experience, I specialize in building production-ready AI systems 
-              and full-stack applications that solve real-world problems at scale.
+              We help founders and teams move from unclear ideas, inherited systems, or manual workflows to software that is scoped, shipped, documented, and ready to operate.
             </p>
           </div>
         </ScrollAnimation>

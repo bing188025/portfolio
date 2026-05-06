@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SITE_CONFIG } from '@/lib/config'
 import './globals.css'
 
 const inter = Inter({ 
@@ -12,34 +13,45 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono"
 });
 
-// Update this to your deployed domain so OG/Twitter image URLs resolve correctly
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://masterai.dev'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? SITE_CONFIG.url
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
-  title: 'AI Full-Stack Engineer | Portfolio',
-  description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
-  keywords: ['AI Engineer', 'Full-Stack Developer', 'Machine Learning', 'LLM', 'Computer Vision', 'React', 'Next.js', 'Python'],
-  authors: [{ name: 'masterAI' }],
+  title: SITE_CONFIG.title,
+  description: SITE_CONFIG.description,
+  keywords: [
+    'Software Development Services',
+    'Web Development',
+    'AI Development',
+    'LLM Development',
+    'Backend API Development',
+    'Workflow Automation',
+    'Cloud DevOps',
+    'Next.js',
+    'TypeScript',
+    'Python',
+  ],
+  authors: [{ name: SITE_CONFIG.name }],
   openGraph: {
     type: 'website',
-    title: 'AI Full-Stack Engineer | Portfolio',
-    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
+    siteName: SITE_CONFIG.name,
     images: [
       {
         url: '/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'AI Full-Stack Engineer Portfolio',
+        alt: `${SITE_CONFIG.name} software development services`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Full-Stack Engineer | Portfolio',
-    description: 'Building intelligent systems that scale. Specializing in AI Agents, LLM Systems, Computer Vision, and Full-Stack Platforms.',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.description,
     images: ['/opengraph-image'],
-    creator: '@masterAI359',
+    creator: SITE_CONFIG.twitterHandle,
   },
   icons: {
     icon: [

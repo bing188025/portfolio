@@ -4,19 +4,20 @@ import { useState, useRef, useEffect } from 'react'
 import { TypingEffect } from './typing-effect'
 import { ScatteredTextReveal } from './scattered-text-reveal'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Github, Linkedin, Download } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/config'
+import { ArrowRight, Github, Linkedin } from 'lucide-react'
 
 const specialties = [
-  "AI Agents",
-  "LLM Systems",
-  "Computer Vision",
-  "Full-Stack Platforms"
+  "Web Platforms",
+  "AI Workflows",
+  "Backend Systems",
+  "Business Automation"
 ]
 
 const headlineLines = [
-  { text: "AI Full-Stack Engineer", className: "text-foreground" },
-  { text: "building intelligent systems", className: "text-muted-foreground" },
-  { text: "that scale", className: "text-muted-foreground" },
+  { text: "Software development", className: "text-foreground" },
+  { text: "for businesses ready to", className: "text-muted-foreground" },
+  { text: "ship better products", className: "text-muted-foreground" },
 ]
 
 export function HeroSection() {
@@ -68,11 +69,6 @@ export function HeroSection() {
         }}
       />
 
-      {/* Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-md h-112 bg-primary/15 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2 }} />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-chart-2/15 rounded-full blur-3xl animate-pulse-glow" style={{ zIndex: 2, animationDelay: '1.5s' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-xl h-144 bg-primary/5 rounded-full blur-3xl" style={{ zIndex: 2 }} />
-
       {/* Grid Background */}
       <div 
         className="absolute inset-0"
@@ -90,7 +86,7 @@ export function HeroSection() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/30 mb-8 animate-fade-in shadow-lg shadow-primary/10">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-sm font-medium text-foreground/80">Available for new projects</span>
+          <span className="text-sm font-medium text-foreground/80">Accepting new client projects</span>
         </div>
 
         {/* Main Headline — scattered character reveal */}
@@ -107,7 +103,7 @@ export function HeroSection() {
             transition: 'opacity 0.5s ease, transform 0.5s ease',
           }}
         >
-          <span className="text-lg sm:text-xl text-muted-foreground mr-2">Specializing in</span>
+          <span className="text-lg sm:text-xl text-muted-foreground mr-2">We build</span>
           <TypingEffect 
             words={specialties} 
             className="text-lg sm:text-xl font-semibold text-primary"
@@ -123,8 +119,7 @@ export function HeroSection() {
             transition: 'opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s',
           }}
         >
-          Transforming complex ideas into production-ready AI systems. 
-          From intelligent agents to scalable full-stack platforms.
+          DevForge Studio helps teams plan, design, build, launch, and maintain reliable software with clear scope, practical architecture, and production-minded execution.
         </p>
 
         {/* CTA Buttons */}
@@ -141,8 +136,8 @@ export function HeroSection() {
             size="lg" 
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
           >
-            <a href="#projects">
-              View Projects
+            <a href="#contact">
+              Request Project Estimate
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </a>
           </Button>
@@ -152,20 +147,8 @@ export function HeroSection() {
             variant="outline" 
             className="border-border hover:text-primary/90 px-8 py-6 text-lg"
           >
-            <a href="#contact">
-              Hire Me
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="ghost"
-            className="border border-border/50 hover:border-primary/40 hover:bg-primary/10 px-8 py-6 text-lg text-foreground/70 hover:text-foreground"
-          >
-            {/* Place your resume PDF at /public/resume.pdf */}
-            <a href="/resume.pdf" download="AI-FullStack-Engineer-Resume.pdf">
-              <Download className="mr-2 h-5 w-5" />
-              Resume
+            <a href="#services">
+              Explore Services
             </a>
           </Button>
         </div>
@@ -180,27 +163,27 @@ export function HeroSection() {
           }}
         >
           <a 
-            href="https://github.com/masterAI359"
+            href={SITE_CONFIG.github}
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full glass border border-border hover:border-primary/50 hover:bg-primary/10 transition-all"
-            aria-label="GitHub"
+            aria-label="GitHub profile"
           >
             <Github className="h-5 w-5 text-muted-foreground hover:text-foreground" />
           </a>
           <a 
-            href="https://linkedin.com/in/masterAI359"
+            href={SITE_CONFIG.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full glass border border-border hover:border-primary/50 hover:bg-primary/10 transition-all"
-            aria-label="LinkedIn"
+            aria-label="LinkedIn profile"
           >
             <Linkedin className="h-5 w-5 text-muted-foreground hover:text-foreground" />
           </a>
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce flex flex-col items-center gap-2">
           <span className="text-xs text-muted-foreground/60 tracking-widest uppercase">Scroll</span>
           <div className="w-6 h-10 rounded-full border-2 border-primary/40 flex items-start justify-center p-1 shadow-[0_0_12px_rgba(56,189,248,0.2)]">
             <div className="w-1.5 h-2.5 rounded-full bg-primary animate-pulse" />

@@ -5,6 +5,7 @@ import { ScrollAnimation } from './scroll-animation'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import { SITE_CONFIG } from '@/lib/config'
 import { 
   Mail, 
   Linkedin, 
@@ -18,14 +19,40 @@ import {
 } from 'lucide-react'
 
 const socialLinks = [
-  { name: "GitHub", icon: Github, href: "https://github.com/masterAI359", label: "github.com/masterAI359" },
-  { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/in/masterAI359", label: "linkedin" },
-  { name: "Facebook", icon: Facebook, href: "https://facebook.com/masterAI359", label: "facebook" },
-  { name: "Instagram", icon: Instagram, href: "https://instagram.com/masterAI359", label: "instagram" },
+  { name: "Email", icon: Mail, href: `mailto:${SITE_CONFIG.email}`, label: SITE_CONFIG.email },
+  { name: "GitHub", icon: Github, href: SITE_CONFIG.github, label: "github.com/masterAI359" },
+  { name: "LinkedIn", icon: Linkedin, href: SITE_CONFIG.linkedin, label: "linkedin.com/in/masterAI359" },
+  { name: "Facebook", icon: Facebook, href: SITE_CONFIG.facebook, label: "facebook.com/masterAI359" },
+  { name: "Instagram", icon: Instagram, href: SITE_CONFIG.instagram, label: "instagram.com/masterAI359" },
+]
+
+const serviceOptions = [
+  "Web platform or SaaS",
+  "AI / LLM workflow",
+  "Backend or API system",
+  "Automation",
+  "Cloud / DevOps",
+  "Maintenance or consulting",
+]
+
+const budgetOptions = [
+  "Under $5k",
+  "$5k-$15k",
+  "$15k-$50k",
+  "$50k+",
+  "Not sure yet",
+]
+
+const timelineOptions = [
+  "ASAP",
+  "2-4 weeks",
+  "1-3 months",
+  "3+ months",
+  "Planning stage",
 ]
 
 export function ContactSection() {
-  const [state, handleSubmit] = useForm('mlgoajnz')
+  const [state, handleSubmit] = useForm(SITE_CONFIG.formspreeId)
 
   return (
     <section id="contact" className="py-24 lg:py-32 relative overflow-hidden">
@@ -81,14 +108,13 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">Get In Touch</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">Project Inquiry</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
-              {"Let's Build Something"}
-              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Powerful Together</span>
+              Tell us what you want to
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> build or improve</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Ready to bring your AI project to life? {"I'd"} love to hear about your ideas 
-              and explore how we can create something exceptional.
+              Share the project context, service need, timeline, and budget range. We will review it and respond with the best next step.
             </p>
           </div>
         </ScrollAnimation>
@@ -97,20 +123,20 @@ export function ContactSection() {
           {/* Contact Form */}
           <ScrollAnimation delay={100}>
             <div className="glass border border-border/60 rounded-2xl p-6 lg:p-8 shadow-xl shadow-black/30">
-              <h3 className="text-xl font-semibold mb-6 text-foreground">Send a Message</h3>
+              <h3 className="text-xl font-semibold mb-6 text-foreground">Request a Project Estimate</h3>
 
               {state.succeeded ? (
                 <div className="flex flex-col items-center justify-center gap-4 py-16 text-center">
                   <CheckCircle2 className="h-14 w-14 text-green-400" />
-                  <p className="text-lg font-semibold text-foreground">Message sent!</p>
-                  <p className="text-foreground/60 text-sm">{"I'll"} get back to you within 24 hours.</p>
+                  <p className="text-lg font-semibold text-foreground">Request received</p>
+                  <p className="text-foreground/60 text-sm">We will review your details and respond within one business day.</p>
                 </div>
               ) : (
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-foreground/70 mb-2">
-                        Name
+                        Full name
                       </label>
                       <Input 
                         id="name"
@@ -123,17 +149,84 @@ export function ContactSection() {
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-foreground/70 mb-2">
-                        Email
+                        Business email
                       </label>
                       <Input 
                         id="email"
                         name="email"
                         type="email"
                         required
-                        placeholder="you@example.com"
+                        placeholder="you@company.com"
                         className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
                       />
                       <ValidationError field="email" errors={state.errors} className="mt-1 text-xs text-red-400" />
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="company" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Company
+                      </label>
+                      <Input
+                        id="company"
+                        name="company"
+                        required
+                        placeholder="Company or organization"
+                        className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="serviceType" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Service type
+                      </label>
+                      <select
+                        id="serviceType"
+                        name="serviceType"
+                        required
+                        defaultValue=""
+                        className="h-10 w-full rounded-md border border-border/60 bg-background/70 px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      >
+                        <option value="" disabled>Select service</option>
+                        {serviceOptions.map((option) => (
+                          <option key={option} value={option}>{option}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="budgetRange" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Budget range
+                      </label>
+                      <select
+                        id="budgetRange"
+                        name="budgetRange"
+                        required
+                        defaultValue=""
+                        className="h-10 w-full rounded-md border border-border/60 bg-background/70 px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      >
+                        <option value="" disabled>Select budget</option>
+                        {budgetOptions.map((option) => (
+                          <option key={option} value={option}>{option}</option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="timeline" className="block text-sm font-medium text-foreground/70 mb-2">
+                        Timeline
+                      </label>
+                      <select
+                        id="timeline"
+                        name="timeline"
+                        required
+                        defaultValue=""
+                        className="h-10 w-full rounded-md border border-border/60 bg-background/70 px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+                      >
+                        <option value="" disabled>Select timeline</option>
+                        {timelineOptions.map((option) => (
+                          <option key={option} value={option}>{option}</option>
+                        ))}
+                      </select>
                     </div>
                   </div>
                   <div>
@@ -143,7 +236,7 @@ export function ContactSection() {
                     <Input 
                       id="subject"
                       name="subject"
-                      placeholder="Project inquiry"
+                      placeholder="New platform, AI workflow, maintenance..."
                       className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30"
                     />
                   </div>
@@ -155,7 +248,7 @@ export function ContactSection() {
                       id="message"
                       name="message"
                       required
-                      placeholder="Tell me about your project..."
+                      placeholder="Tell us what you want to build, improve, automate, or maintain. Include current tools, users, integrations, and any deadlines."
                       rows={5}
                       className="bg-background/70 border-border/60 focus:border-primary focus:ring-primary/20 placeholder:text-foreground/30 resize-none"
                     />
@@ -172,7 +265,7 @@ export function ContactSection() {
                     disabled={state.submitting}
                     className="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-6 text-lg group shadow-lg shadow-primary/20 disabled:opacity-60"
                   >
-                    {state.submitting ? 'Sending...' : 'Send Message'}
+                    {state.submitting ? 'Sending...' : 'Request Estimate'}
                     <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </form>
@@ -186,8 +279,7 @@ export function ContactSection() {
               <div>
                 <h3 className="text-xl font-semibold mb-4 text-foreground">Contact Information</h3>
                 <p className="text-foreground/60 leading-relaxed">
-                  Feel free to reach out through any of these channels. 
-                  {"I'm"} typically responsive within 24 hours.
+                  Use the form for project context, or reach out directly if you need to discuss fit, scope, or an existing system before sharing details.
                 </p>
               </div>
 
@@ -219,8 +311,7 @@ export function ContactSection() {
                   <span className="font-semibold text-foreground">Currently Available</span>
                 </div>
                 <p className="text-foreground/60 text-sm leading-relaxed">
-                  Open for freelance projects, consulting, and full-time opportunities. 
-                  {"Let's"} discuss how I can contribute to your team or project.
+                  Available for discovery sprints, product builds, AI workflow implementation, automation, maintenance, and technical consulting.
                 </p>
               </div>
             </div>

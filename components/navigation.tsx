@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { SITE_CONFIG } from '@/lib/config'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
+  { href: "#process", label: "Process" },
   { href: "#projects", label: "Projects" },
   { href: "#tech", label: "Tech Stack" },
   { href: "#contact", label: "Contact" },
@@ -40,9 +42,9 @@ export function Navigation() {
           {/* Logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="w-10 h-10 flex items-center justify-center group-hover:opacity-90 transition-opacity">
-              <Image src="/logo.png" alt="masterAI Logo" width={40} height={40} className="object-contain" priority />
+              <Image src="/logo.png" alt={`${SITE_CONFIG.name} logo`} width={40} height={40} className="object-contain" priority />
             </div>
-            <span className="font-semibold text-foreground hidden sm:block">masterAI</span>
+            <span className="font-semibold text-foreground hidden sm:block">{SITE_CONFIG.name}</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -61,7 +63,7 @@ export function Navigation() {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20">
-              <a href="#contact">Hire Me</a>
+              <a href="#contact">Request Estimate</a>
             </Button>
           </div>
 
@@ -91,7 +93,7 @@ export function Navigation() {
               </a>
             ))}
             <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground shadow-md shadow-primary/20">
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Hire Me</a>
+              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Request Estimate</a>
             </Button>
           </div>
         </div>

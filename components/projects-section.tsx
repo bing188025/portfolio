@@ -9,10 +9,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const categories = [
-  { id: "all", label: "All Projects", icon: Boxes },
-  { id: "ai", label: "AI / ML", icon: Brain },
+  { id: "all", label: "All Work", icon: Boxes },
+  { id: "ai", label: "AI / Automation", icon: Brain },
   { id: "graphics", label: "3D / 4D", icon: Boxes },
-  { id: "fullstack", label: "Full-Stack", icon: Globe },
+  { id: "fullstack", label: "Web Platforms", icon: Globe },
   { id: "apps", label: "Apps & Tools", icon: Smartphone },
 ]
 
@@ -253,14 +253,13 @@ export function ProjectsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-12">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">Portfolio</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">Project Proof</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
-              Featured
-              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Projects</span>
+              Work examples across
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> real business workflows</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A collection of AI systems, full-stack platforms, and innovative applications 
-              built with cutting-edge technologies.
+              Explore AI systems, web platforms, infrastructure tools, and automation concepts that show the kinds of problems we can help scope and deliver.
             </p>
           </div>
         </ScrollAnimation>

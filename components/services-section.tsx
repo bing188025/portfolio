@@ -3,57 +3,81 @@
 import { ScrollAnimation } from './scroll-animation'
 import { TiltCard } from './tilt-card'
 import { Button } from '@/components/ui/button'
-import { Check, Brain, Globe, Bot, Cpu, ArrowRight } from 'lucide-react'
+import { Check, Brain, Globe, Bot, Server, Cloud, MessagesSquare, ArrowRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const services = [
   {
-    icon: Brain,
-    title: "AI System Development",
-    description: "End-to-end design and implementation of production-ready AI systems — RAG pipelines, LLM integrations, fine-tuning, and intelligent search.",
+    icon: Globe,
+    title: "Web Platforms & SaaS",
+    description: "Modern websites, dashboards, portals, and SaaS products with responsive UI, clean workflows, and scalable foundations.",
     features: [
-      "Custom LLM integrations (OpenAI, Claude, Gemini)",
-      "RAG & vector search pipelines",
-      "Model fine-tuning & evaluation",
-      "AI API design & deployment",
+      "Next.js and React interfaces",
+      "Customer portals and dashboards",
+      "Payments, auth, and CMS integrations",
+      "Conversion-focused landing pages",
+    ],
+    highlight: true,
+  },
+  {
+    icon: Brain,
+    title: "AI / LLM Development",
+    description: "AI assistants, RAG systems, workflow copilots, and LLM features designed around useful production behavior.",
+    features: [
+      "Custom LLM integrations",
+      "RAG and knowledge search",
+      "Prompt, eval, and guardrail systems",
+      "Computer vision workflows",
+    ],
+    highlight: true,
+  },
+  {
+    icon: Server,
+    title: "Backend & API Systems",
+    description: "Reliable service architecture, databases, integrations, permissions, and APIs for products that need to grow.",
+    features: [
+      "REST and GraphQL APIs",
+      "Database design and optimization",
+      "Authentication and role permissions",
+      "Third-party system integrations",
     ],
     highlight: true,
   },
   {
     icon: Bot,
-    title: "AI Agent & Automation",
-    description: "Autonomous agents that handle complex multi-step workflows — from data collection and processing to decision-making and reporting.",
+    title: "Automation & Agents",
+    description: "Workflow automation that removes repetitive work and connects business systems without creating fragile shortcuts.",
     features: [
-      "Multi-agent orchestration (LangChain, CrewAI)",
-      "Browser & API automation",
-      "Scheduled workflow pipelines",
-      "Tool-use & function-calling agents",
+      "Internal operations automation",
+      "Scheduled reporting and alerts",
+      "Browser and API automation",
+      "Tool-use agents with review paths",
     ],
-    highlight: true,
+    highlight: false,
   },
   {
-    icon: Globe,
-    title: "Full-Stack Web Platforms",
-    description: "Scalable, modern web applications built with Next.js, TypeScript, and robust backend systems — from MVPs to enterprise platforms.",
+    icon: Cloud,
+    title: "Cloud & DevOps",
+    description: "Deployment pipelines, hosting, observability, and release practices that make software easier to ship and operate.",
     features: [
-      "Next.js / React frontend",
-      "REST & GraphQL APIs",
-      "Database design (PostgreSQL, MongoDB)",
-      "Payment integrations (Stripe)",
+      "Cloud deployment setup",
+      "CI/CD pipelines",
+      "Containerization and hosting",
+      "Monitoring and incident readiness",
     ],
-    highlight: true,
+    highlight: false,
   },
   {
-    icon: Cpu,
-    title: "Computer Vision Systems",
-    description: "Real-time image and video analysis systems — object detection, face recognition, defect detection, and 3D reconstruction.",
+    icon: MessagesSquare,
+    title: "Consulting & Maintenance",
+    description: "Technical discovery, architecture review, existing-system support, roadmap planning, and ongoing improvement cycles.",
     features: [
-      "Object detection & tracking (YOLO, DETR)",
-      "Face recognition & biometrics",
-      "3D / 4D Gaussian splatting",
-      "Medical & industrial inspection AI",
+      "Discovery and technical planning",
+      "Architecture and codebase review",
+      "Bug fixes and dependency updates",
+      "Roadmap and handoff support",
     ],
-    highlight: true,
+    highlight: false,
   },
 ]
 
@@ -68,19 +92,18 @@ export function ServicesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 2 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">What I Offer</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">Services</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
-              Services &
-              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Expertise</span>
+              Complete support for
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> software delivery</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From intelligent AI systems to production-ready web platforms — 
-              I deliver complete solutions that drive real business value.
+              Bring us in for a focused sprint, a full product build, an AI workflow, or ongoing maintenance for software that already exists.
             </p>
           </div>
         </ScrollAnimation>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <ScrollAnimation key={service.title} delay={index * 80}>
               <TiltCard
@@ -93,7 +116,7 @@ export function ServicesSection() {
               >
                 {service.highlight && (
                   <span className="self-start px-3 py-1 text-xs font-semibold bg-primary text-primary-foreground rounded-full shadow-md shadow-primary/30">
-                    Most Requested
+                    Core Service
                   </span>
                 )}
 
@@ -133,7 +156,7 @@ export function ServicesSection() {
                   )}
                 >
                   <a href="#contact">
-                    Get Started
+                    Discuss This Service
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </a>
                 </Button>

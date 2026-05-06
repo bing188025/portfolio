@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Github, Linkedin, Mail } from 'lucide-react'
+import { SITE_CONFIG } from '@/lib/config'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -13,17 +14,17 @@ export function Footer() {
           {/* Logo & Copyright */}
           <div className="flex items-center gap-4">
             <div className="w-8 h-8 flex items-center justify-center">
-              <Image src="/logo.png" alt="masterAI Logo" width={32} height={32} className="object-contain" />
+              <Image src="/logo.png" alt={`${SITE_CONFIG.name} logo`} width={32} height={32} className="object-contain" />
             </div>
             <span className="text-sm text-foreground/50">
-              © {currentYear} masterAI. All rights reserved.
+              © {currentYear} {SITE_CONFIG.name}. All rights reserved.
             </span>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center gap-3">
             <a 
-              href="https://github.com/masterAI359"
+              href={SITE_CONFIG.github}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-foreground/50 hover:text-foreground hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all"
@@ -32,7 +33,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a 
-              href="https://linkedin.com/in/masterAI359"
+              href={SITE_CONFIG.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-lg text-foreground/50 hover:text-foreground hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all"
@@ -41,7 +42,7 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a 
-              href="mailto:contact@masterai.dev"
+              href={`mailto:${SITE_CONFIG.email}`}
               className="p-2 rounded-lg text-foreground/50 hover:text-foreground hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all"
               aria-label="Email"
             >

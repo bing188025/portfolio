@@ -121,14 +121,13 @@ export function TechStackSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 3 }}>
         <ScrollAnimation>
           <div className="text-center mb-16">
-            <span className="text-primary font-medium text-sm tracking-wider uppercase">Technologies</span>
+            <span className="text-primary font-medium text-sm tracking-wider uppercase">Technology Stack</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mt-4 mb-6 text-balance">
-              Tech
-              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> Stack</span>
+              Practical tools for
+              <span className="bg-linear-to-r from-primary to-chart-2 bg-clip-text text-transparent"> production software</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A comprehensive toolkit spanning AI/ML, modern frontend frameworks, 
-              scalable backends, and cloud infrastructure.
+              We choose technology around product needs, team ownership, integration risk, and long-term maintainability.
             </p>
           </div>
         </ScrollAnimation>
