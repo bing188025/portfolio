@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { SITE_CONFIG } from '@/lib/config'
 
 export const runtime = 'nodejs'
 export const contentType = 'image/png'
@@ -21,7 +22,7 @@ export default function Icon() {
           justifyContent: 'center',
         }}
       >
-        <img src={logoBase64} alt="DevForge Studio logo" width={32} height={32} style={{ objectFit: 'contain' }} />
+        <img src={logoBase64} alt={`${SITE_CONFIG.name} logo`} width={32} height={32} style={{ objectFit: 'contain' }} />
       </div>
     ),
     { ...size }

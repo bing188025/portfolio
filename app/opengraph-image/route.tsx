@@ -5,7 +5,7 @@ import { SITE_CONFIG } from '@/lib/config'
 
 export const runtime = 'nodejs'
 
-export const alt = 'DevForge Studio software development services'
+export const alt = `${SITE_CONFIG.name} global software development services`
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -51,14 +51,14 @@ export async function GET() {
           }}
         />
         <div style={{ display: 'flex', alignItems: 'center', gap: '18px', marginBottom: '42px' }}>
-          <img src={logoBase64} alt="DevForge Studio logo" width={76} height={76} style={{ objectFit: 'contain' }} />
+          <img src={logoBase64} alt={`${SITE_CONFIG.name} logo`} width={76} height={76} style={{ objectFit: 'contain' }} />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '30px', fontWeight: 800 }}>{SITE_CONFIG.name}</span>
-            <span style={{ fontSize: '18px', color: 'rgba(255,255,255,0.62)' }}>Software development partner</span>
+            <span style={{ fontSize: '18px', color: 'rgba(255,255,255,0.62)' }}>{SITE_CONFIG.tagline}</span>
           </div>
         </div>
         <div style={{ fontSize: '68px', fontWeight: 850, lineHeight: 1.06, maxWidth: '940px' }}>
-          Plan, build, launch, and maintain software products.
+          Global software, AI, and automation services.
         </div>
         <div style={{ marginTop: '28px', fontSize: '30px', color: '#38bdf8', fontWeight: 650 }}>
           Web · Mobile · AI / LLM · Backend · Automation · Infrastructure

@@ -13,7 +13,7 @@ export default function CookiesPage() {
   return (
     <LegalDocument
       title="Cookie Policy"
-      description="This Cookie Policy explains how cookies and similar technologies may be used on the DevForge Studio website."
+      description={`This Cookie Policy explains how cookies and similar technologies may be used on the ${SITE_CONFIG.name} website.`}
       sections={[
         {
           title: 'Overview',

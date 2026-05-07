@@ -26,14 +26,15 @@ import {
   services,
   strengths,
 } from '@/lib/site-data'
+import { SITE_CONFIG } from '@/lib/config'
 
 export default function HomePage() {
   return (
     <>
       <PageHero
-        eyebrow="Software development partner"
-        title="Senior product engineering for companies that need software shipped right."
-        description="DevForge Studio helps businesses scope, design, build, launch, and maintain web platforms, mobile apps, AI workflows, backend systems, and automation. We make the delivery path clear before code starts and keep it visible through launch."
+        eyebrow="Worldwide software service partner"
+        title="Global software, AI, and automation delivery for ambitious companies."
+        description={`${SITE_CONFIG.name} helps businesses worldwide scope, design, build, launch, and maintain web platforms, mobile apps, AI workflows, backend systems, cloud infrastructure, and automation. We make the delivery path clear before code starts and keep it visible through launch.`}
         imageSrc="/images/projects/corporate-system.jpg"
         actions={
           <>
@@ -62,8 +63,8 @@ export default function HomePage() {
       <ContentSection className="pt-6">
         <SectionHeading
           eyebrow="Services"
-          title="A complete service stack for business software delivery."
-          description="Work with us on a single critical workflow, a full product build, or a longer-term roadmap that needs product, engineering, AI, automation, and infrastructure support."
+          title="A complete service stack for worldwide software delivery."
+          description="Work with us on a single critical workflow, a full product build, or a longer-term roadmap that needs product, engineering, AI, automation, cloud, and maintenance support."
         />
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
@@ -76,7 +77,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Engagement models"
           title="Choose the working model that matches your stage."
-          description="Inspired by strong consulting and product-agency patterns, we package the work around outcomes: clarity, launch, automation, ongoing delivery, or maintenance."
+          description="We package the work around outcomes: clarity, launch, automation, global-ready delivery, ongoing product work, or maintenance."
         />
         <EngagementModelCards models={engagementModels.slice(0, 3)} />
         <div className="mt-8 text-center">
@@ -90,7 +91,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Trust model"
           title="Designed to reduce delivery risk before it becomes expensive."
-          description="The best service websites make proof and process easy to understand. Our operating model is built around the same principle: visible scope, clear ownership, and practical progress."
+          description="Strong global service delivery depends on proof, process, and clear communication. Our operating model is built around visible scope, clear ownership, and practical progress."
         />
         <StrengthGrid strengths={deliveryPrinciples} />
       </ContentSection>
@@ -108,7 +109,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Case studies"
           title="Work examples organized by business workflow."
-          description="Use these examples to understand the kinds of products, platforms, AI workflows, and operations systems we can help shape."
+          description="Use these examples to understand the kinds of products, platforms, AI workflows, and operations systems we can help shape for international and remote-first teams."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.slice(0, 3).map((study) => (

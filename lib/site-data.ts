@@ -79,43 +79,43 @@ export const services: Service[] = [
   {
     slug: 'web-development',
     title: 'Web Development',
-    summary: 'Modern websites, dashboards, portals, and SaaS products built for conversion, usability, and scale.',
+    summary: 'High-performance websites, SaaS products, dashboards, portals, and platforms built for global reach.',
     description:
-      'We build responsive web platforms with clear information architecture, accessible interfaces, secure integrations, and maintainable codebases that can evolve with your business.',
+      'We build responsive web platforms with clear information architecture, accessible interfaces, strong technical SEO foundations, secure integrations, and maintainable codebases that can evolve with your business.',
     icon: 'Code2',
     deliverables: ['Marketing websites and landing pages', 'SaaS dashboards and portals', 'E-commerce and payment flows', 'CMS and admin experiences'],
   },
   {
     slug: 'mobile-app-development',
     title: 'Mobile App Development',
-    summary: 'Practical mobile applications for customers, teams, and operations across iOS and Android.',
+    summary: 'Cross-platform mobile applications for customers, teams, and operations across iOS and Android.',
     description:
-      'From product planning to app-store-ready releases, we help teams ship mobile experiences that are fast, reliable, and aligned with real user workflows.',
+      'From product planning to app-store-ready releases, we help teams ship mobile experiences that are fast, reliable, localization-ready, and aligned with real user workflows.',
     icon: 'Smartphone',
     deliverables: ['Cross-platform mobile apps', 'Product prototypes and MVPs', 'API-backed mobile experiences', 'Release support and iteration'],
   },
   {
     slug: 'ai-llm-development',
     title: 'AI / LLM Development',
-    summary: 'AI assistants, RAG systems, workflow agents, and LLM features designed for measurable business use cases.',
+    summary: 'AI assistants, RAG systems, workflow agents, and LLM features designed for measurable business outcomes.',
     description:
-      'We design AI systems around your data, users, and risk profile so the result is useful in production instead of a disconnected demo.',
+      'We design AI systems around your data, users, evaluation path, and risk profile so the result is useful in production instead of a disconnected demo.',
     icon: 'Brain',
     deliverables: ['AI agents and assistants', 'RAG and knowledge search', 'Prompt and evaluation systems', 'Computer vision workflows'],
   },
   {
     slug: 'backend-api-development',
     title: 'Backend & API Development',
-    summary: 'Reliable APIs, integrations, databases, and service architecture for products that need to grow.',
+    summary: 'Reliable APIs, integrations, databases, and service architecture for products that need to scale.',
     description:
-      'We create backend systems with clean contracts, secure data handling, strong observability, and practical documentation for future teams.',
+      'We create backend systems with clean contracts, secure data handling, strong observability, and practical documentation for future teams and integrations.',
     icon: 'Server',
     deliverables: ['REST and GraphQL APIs', 'Database design and optimization', 'Third-party integrations', 'Authentication and permissions'],
   },
   {
     slug: 'automation',
     title: 'Automation',
-    summary: 'Workflow automation that removes repetitive work from teams and connects business systems cleanly.',
+    summary: 'Business process automation that removes repetitive work and connects critical systems cleanly.',
     description:
       'We identify bottlenecks, map the right automation boundaries, and build resilient workflows that reduce manual operations without creating fragile shortcuts.',
     icon: 'Workflow',
@@ -124,27 +124,27 @@ export const services: Service[] = [
   {
     slug: 'infrastructure-devops',
     title: 'Infrastructure & DevOps',
-    summary: 'Cloud deployment, CI/CD, monitoring, and infrastructure support for stable production delivery.',
+    summary: 'Cloud deployment, CI/CD, monitoring, and infrastructure support for dependable worldwide delivery.',
     description:
-      'We set up deployment pipelines, cloud environments, monitoring, and release practices that make software easier to ship and safer to operate.',
+      'We set up deployment pipelines, cloud environments, monitoring, and release practices that make software easier to ship and safer to operate across regions and teams.',
     icon: 'Cloud',
     deliverables: ['Cloud architecture and deployment', 'CI/CD pipelines', 'Containerization and hosting', 'Monitoring and incident readiness'],
   },
   {
     slug: 'maintenance-support',
     title: 'Maintenance & Support',
-    summary: 'Ongoing development, bug fixes, security updates, and improvement cycles for existing products.',
+    summary: 'Ongoing development, bug fixes, security updates, and improvement cycles for live products.',
     description:
-      'We help teams stabilize existing systems, keep dependencies current, improve performance, and continue delivering useful product changes.',
+      'We help teams stabilize existing systems, keep dependencies current, improve performance, and continue delivering useful product changes after launch.',
     icon: 'LifeBuoy',
     deliverables: ['Bug fixing and enhancements', 'Performance improvements', 'Security and dependency updates', 'Roadmap support'],
   },
   {
     slug: 'consulting',
     title: 'Consulting',
-    summary: 'Technical planning, architecture reviews, product discovery, and delivery guidance before or during a build.',
+    summary: 'Technical planning, architecture reviews, product discovery, and delivery guidance for ambitious builds.',
     description:
-      'We help leaders clarify scope, reduce risk, choose the right architecture, and turn uncertain ideas into practical execution plans.',
+      'We help leaders clarify scope, reduce risk, choose the right architecture, and turn uncertain ideas into practical execution plans that can support global growth.',
     icon: 'MessagesSquare',
     deliverables: ['Product and technical discovery', 'Architecture review', 'Implementation planning', 'Team advisory and audits'],
   },
@@ -153,22 +153,22 @@ export const services: Service[] = [
 export const proofMetrics: ProofMetric[] = [
   {
     value: '30+',
-    label: 'project types delivered',
+    label: 'digital product patterns',
     summary: 'Web platforms, AI workflows, automation, operations tools, mobile apps, and backend systems.',
   },
   {
     value: '6+',
-    label: 'years building software',
+    label: 'years in software delivery',
     summary: 'Experience across planning, implementation, launch support, and long-term product iteration.',
   },
   {
     value: '8',
-    label: 'core service lines',
-    summary: 'A practical coverage model for teams that need more than a single narrow development skill.',
+    label: 'global service lines',
+    summary: 'A practical coverage model for teams that need product, AI, cloud, automation, and support skills together.',
   },
   {
-    value: '1 day',
-    label: 'inquiry response target',
+    value: '1 business day',
+    label: 'response target',
     summary: 'Project requests are reviewed with clear next-step guidance before a build is proposed.',
   },
 ]
@@ -176,14 +176,14 @@ export const proofMetrics: ProofMetric[] = [
 export const engagementModels: EngagementModel[] = [
   {
     title: 'Discovery Sprint',
-    summary: 'Clarify scope, risks, users, architecture, and estimate path before committing to a build.',
+    summary: 'Clarify scope, risks, users, architecture, search goals, and estimate path before committing to a build.',
     bestFor: 'Early ideas, unclear scope, inherited products',
     duration: '1-2 weeks',
     includes: ['Stakeholder intake', 'Feature and risk map', 'Architecture direction', 'Delivery estimate path'],
   },
   {
     title: 'MVP / Product Build',
-    summary: 'Plan, design, implement, and launch a focused product version with production foundations.',
+    summary: 'Plan, design, implement, and launch a focused product version with production and growth foundations.',
     bestFor: 'New SaaS, portals, booking systems, internal tools',
     duration: '4-12+ weeks',
     includes: ['UX and product flow', 'Frontend and backend build', 'Integrations', 'Launch support'],
@@ -214,7 +214,7 @@ export const engagementModels: EngagementModel[] = [
 export const strengths: Strength[] = [
   {
     title: 'Business-first delivery',
-    summary: 'We connect technical decisions to commercial goals, customer needs, and operating constraints.',
+    summary: 'We connect technical decisions to commercial goals, customer needs, search visibility, and operating constraints.',
     icon: 'ClipboardCheck',
   },
   {
@@ -224,7 +224,7 @@ export const strengths: Strength[] = [
   },
   {
     title: 'Maintainable engineering',
-    summary: 'Code, documentation, deployment, and handoff practices are designed for long-term ownership.',
+    summary: 'Code, documentation, deployment, and handoff practices are designed for long-term ownership and growth.',
     icon: 'Layers',
   },
   {
@@ -237,7 +237,7 @@ export const strengths: Strength[] = [
 export const deliveryPrinciples: Strength[] = [
   {
     title: 'Scope before speed',
-    summary: 'We define the smallest useful release, unresolved decisions, and acceptance criteria before development accelerates.',
+    summary: 'We define the smallest useful release, unresolved decisions, search requirements, and acceptance criteria before development accelerates.',
     icon: 'Target',
   },
   {
@@ -252,7 +252,7 @@ export const deliveryPrinciples: Strength[] = [
   },
   {
     title: 'Ownership-friendly handoff',
-    summary: 'Code, environments, documentation, and implementation context are prepared for long-term ownership.',
+    summary: 'Code, environments, documentation, analytics context, and implementation notes are prepared for long-term ownership.',
     icon: 'Users',
   },
 ]
@@ -260,32 +260,32 @@ export const deliveryPrinciples: Strength[] = [
 export const processSteps: ProcessStep[] = [
   {
     title: 'Discover',
-    summary: 'Clarify the business goal, user needs, technical constraints, and success metrics.',
-    details: ['Stakeholder intake', 'Current-state review', 'Risk and dependency mapping'],
+    summary: 'Clarify the business goal, user needs, target markets, technical constraints, and success metrics.',
+    details: ['Stakeholder intake', 'Current-state review', 'Risk, SEO, and dependency mapping'],
   },
   {
     title: 'Plan',
     summary: 'Translate the idea into a practical scope, architecture direction, delivery plan, and estimate.',
-    details: ['Feature definition', 'Technical approach', 'Milestones and priorities'],
+    details: ['Feature definition', 'Technical approach', 'Milestones, priorities, and launch path'],
   },
   {
     title: 'Design',
     summary: 'Shape the product experience, workflows, and interface patterns before production engineering begins.',
-    details: ['Information architecture', 'Responsive UX', 'Clickable flow review'],
+    details: ['Information architecture', 'Responsive UX', 'Conversion and accessibility review'],
   },
   {
     title: 'Build',
     summary: 'Implement the product with regular progress reviews, clean code, and production-minded practices.',
-    details: ['Frontend and backend delivery', 'Integrations', 'QA and iteration'],
+    details: ['Frontend and backend delivery', 'Integrations', 'QA, analytics, and iteration'],
   },
   {
     title: 'Launch',
     summary: 'Prepare the release, deploy the system, validate the production path, and support handoff.',
-    details: ['Deployment readiness', 'Monitoring setup', 'Launch support'],
+    details: ['Deployment readiness', 'Monitoring setup', 'Search and launch support'],
   },
   {
     title: 'Improve',
-    summary: 'Continue refining performance, reliability, features, and operational workflows after launch.',
+    summary: 'Continue refining performance, reliability, features, visibility, and operational workflows after launch.',
     details: ['Maintenance', 'Analytics-informed iteration', 'Roadmap planning'],
   },
 ]
@@ -351,7 +351,12 @@ export const faqs: Faq[] = [
   {
     question: 'What types of clients do you work with?',
     answer:
-      'We work with startups, small and mid-sized businesses, internal teams, and founders who need a reliable technical partner for product planning, software delivery, AI features, automation, or ongoing support.',
+      'We work with startups, small and mid-sized businesses, founders, and internal teams that need a reliable technical partner for product planning, software delivery, AI features, automation, cloud deployment, or ongoing support.',
+  },
+  {
+    question: 'Do you work with clients worldwide?',
+    answer:
+      'Yes. Our services are designed for remote collaboration with clients across regions. We keep scope, decisions, demos, and handoff materials clear so timezone differences do not slow delivery.',
   },
   {
     question: 'Can you help if we only have an idea and no technical specification?',
@@ -367,6 +372,11 @@ export const faqs: Faq[] = [
     question: 'How do you estimate cost and timeline?',
     answer:
       'We estimate after understanding the business goal, required workflows, integrations, technical complexity, and launch expectations. For larger builds, we often recommend a discovery phase before committing to a full implementation estimate.',
+  },
+  {
+    question: 'Can you help us compete for global search visibility?',
+    answer:
+      'We can build technical SEO foundations into websites and web apps, including metadata, fast page structure, accessible markup, sitemap and robots support, structured data, and content architecture. Ranking still depends on content quality, backlinks, market demand, and ongoing authority building.',
   },
   {
     question: 'Do you provide support after launch?',

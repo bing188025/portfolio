@@ -3,11 +3,12 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import { ContentSection, CTASection, PageHero, ProcessTimeline, SectionHeading } from '@/components/marketing'
+import { SITE_CONFIG } from '@/lib/config'
 import { processSteps } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Development Process',
-  description: 'How DevForge Studio plans, designs, builds, launches, and maintains software products.',
+  description: `How ${SITE_CONFIG.name} plans, designs, builds, launches, and maintains global software products.`,
 }
 
 export default function ProcessPage() {
@@ -15,8 +16,8 @@ export default function ProcessPage() {
     <>
       <PageHero
         eyebrow="Process"
-        title="A delivery process designed to reduce ambiguity and keep projects moving."
-        description="Good software delivery starts before code and continues after launch. Our process gives clients clear next steps, review points, and production-minded execution."
+        title="A delivery process designed to reduce ambiguity and keep projects moving worldwide."
+        description="Good software delivery starts before code and continues after launch. Our process gives clients clear next steps, review points, production-minded execution, and visibility foundations."
         compact
         actions={
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -29,7 +30,7 @@ export default function ProcessPage() {
         <SectionHeading
           eyebrow="How we work"
           title="From discovery to continuous improvement."
-          description="The same structure can support a new product, an AI implementation, a platform rebuild, or ongoing maintenance."
+          description="The same structure can support a new product, an AI implementation, a platform rebuild, a global launch, or ongoing maintenance."
         />
         <ProcessTimeline steps={processSteps} />
       </ContentSection>
@@ -39,7 +40,7 @@ export default function ProcessPage() {
           {[
             ['Transparent scope', 'We define what is included, what is not, and which decisions still need evidence.'],
             ['Frequent review', 'Clients see progress through checkpoints, demos, and practical decision points.'],
-            ['Launch readiness', 'Deployment, monitoring, documentation, and support are considered before release day.'],
+            ['Launch readiness', 'Deployment, monitoring, analytics, documentation, and support are considered before release day.'],
           ].map(([title, description]) => (
             <article key={title} className="rounded-2xl border border-border/50 bg-background/45 p-5">
               <h2 className="text-lg font-semibold text-foreground">{title}</h2>
