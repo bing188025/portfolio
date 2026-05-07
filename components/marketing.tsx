@@ -133,8 +133,8 @@ export function PageHero({
 
 export function HeroDeliveryPanel() {
   const lanes = [
-    ['Intake', 'Goals, users, budget, timeline', 'Complete'],
-    ['Architecture', 'API, data, AI, infrastructure', 'In review'],
+    ['Global intake', 'Goals, users, markets, budget', 'Complete'],
+    ['Architecture', 'SEO, API, data, AI, cloud', 'In review'],
     ['Delivery', 'Sprints, QA, launch checklist', 'Scheduled'],
   ]
 
@@ -145,10 +145,10 @@ export function HeroDeliveryPanel() {
         <div className="mb-5 flex items-center justify-between border-b border-border/60 pb-4">
           <div>
             <p className="text-xs font-medium uppercase tracking-wider text-primary">Delivery board</p>
-            <h2 className="mt-1 text-xl font-semibold text-foreground">Project estimate pathway</h2>
+            <h2 className="mt-1 text-xl font-semibold text-foreground">Global service pathway</h2>
           </div>
           <span className="rounded-full bg-green-400/15 px-3 py-1 text-xs font-medium text-green-300">
-            1-day response
+            1-business-day response
           </span>
         </div>
         <div className="space-y-3">
@@ -170,7 +170,7 @@ export function HeroDeliveryPanel() {
           {[
             ['Scope', 'Mapped'],
             ['Risk', 'Visible'],
-            ['Launch', 'Planned'],
+            ['Growth', 'Planned'],
           ].map(([label, value]) => (
             <div key={label} className="rounded-xl border border-border/50 bg-background/50 p-3 text-center">
               <div className="text-sm font-semibold text-foreground">{value}</div>
@@ -370,8 +370,8 @@ export function FaqList({ faqs }: { faqs: Faq[] }) {
 }
 
 export function CTASection({
-  title = 'Ready to discuss your software project?',
-  description = 'Tell us what you are planning, where you are blocked, or what you need to launch. We will review your request and recommend a practical next step.',
+  title = 'Ready to discuss your global software project?',
+  description = 'Tell us what you are planning, where you are blocked, or what you need to launch. We will review your request and recommend a practical next step for building, automating, scaling, or maintaining it.',
 }: {
   title?: string
   description?: string

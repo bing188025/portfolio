@@ -7,13 +7,13 @@ import { SITE_CONFIG } from '@/lib/config'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Request a project estimate or consultation from DevForge Studio.',
+  description: `Request a global software, AI automation, web, mobile, backend, cloud, or maintenance estimate from ${SITE_CONFIG.name}.`,
 }
 
 export default function ContactPage() {
   const contactNotes: Array<[string, string, LucideIcon]> = [
     ['Response time', 'We review project requests and respond within one business day.', Timer],
-    ['Best for', 'New builds, AI features, web/mobile products, backend systems, automation, and maintenance.', MessageSquare],
+    ['Best for', 'New builds, AI features, web/mobile products, backend systems, cloud delivery, automation, and maintenance.', MessageSquare],
     ['Direct email', SITE_CONFIG.email, Mail],
   ]
 
@@ -21,8 +21,8 @@ export default function ContactPage() {
     <>
       <PageHero
         eyebrow="Contact"
-        title="Tell us what you want to build, improve, automate, or maintain."
-        description="Use the form below to share project context, service needs, timeline, and budget range. We will review your request and respond within one business day."
+        title="Tell us what you want to build, improve, automate, scale, or maintain."
+        description="Use the form below to share project context, service needs, timeline, budget range, and target markets. We will review your request and respond within one business day."
         compact
       />
 

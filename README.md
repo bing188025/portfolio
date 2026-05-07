@@ -1,6 +1,6 @@
-# DevForge Studio Portfolio
+# MasterAI.dev Service Website
 
-DevForge Studio is a Next.js portfolio and service website for a software development agency. It presents service lines, engagement models, case studies, process details, legal pages, and a project inquiry form.
+MasterAI.dev is a Next.js service website for a global software development, AI automation, cloud, and product engineering studio. It presents service lines, engagement models, case studies, process details, legal pages, SEO metadata, structured data, and a project inquiry form.
 
 ## Tech Stack
 

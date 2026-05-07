@@ -13,7 +13,7 @@ export default function TermsPage() {
   return (
     <LegalDocument
       title="Terms of Service"
-      description="These Terms of Service describe general rules for using this website and high-level expectations for service discussions with DevForge Studio."
+      description={`These Terms of Service describe general rules for using this website and high-level expectations for service discussions with ${SITE_CONFIG.name}.`}
       sections={[
         {
           title: 'Acceptance of Terms',

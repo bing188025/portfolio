@@ -3,11 +3,12 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import { CaseStudyCard, ContentSection, CTASection, PageHero, SectionHeading } from '@/components/marketing'
+import { SITE_CONFIG } from '@/lib/config'
 import { caseStudies } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Projects and Case Studies',
-  description: 'Representative software, AI, automation, infrastructure, and product work from DevForge Studio.',
+  description: `Representative software, AI, automation, cloud infrastructure, and product delivery work from ${SITE_CONFIG.name}.`,
 }
 
 export default function ProjectsPage() {
@@ -16,7 +17,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Case studies"
         title="Examples of software systems and workflows we can help deliver."
-        description="Our work spans product platforms, AI-enabled tools, operations systems, booking workflows, infrastructure interfaces, and automation. These examples focus on the type of problem solved rather than inflated claims."
+        description="Our work spans product platforms, AI-enabled tools, operations systems, booking workflows, infrastructure interfaces, and automation. These examples focus on the type of problem solved and the delivery pattern behind it."
         compact
         actions={
           <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
@@ -29,7 +30,7 @@ export default function ProjectsPage() {
         <SectionHeading
           eyebrow="Representative work"
           title="Built around business workflows, not just screens."
-          description="Each project type combines planning, engineering, integrations, and maintainability so the product can support real operations."
+          description="Each project type combines planning, engineering, integrations, visibility foundations, and maintainability so the product can support real operations."
         />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.map((study) => (
@@ -40,7 +41,7 @@ export default function ProjectsPage() {
 
       <CTASection
         title="Have a product or workflow like these?"
-        description="Tell us the outcome you need, the users involved, and where the current process breaks down. We will help shape the right build path."
+        description="Tell us the outcome you need, the users involved, the markets you serve, and where the current process breaks down. We will help shape the right build path."
       />
     </>
   )

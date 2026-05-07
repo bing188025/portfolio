@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/og'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { SITE_CONFIG } from '@/lib/config'
 
 export const runtime = 'nodejs'
 export const contentType = 'image/png'
@@ -24,7 +25,7 @@ export async function GET() {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={logoBase64} alt="DevForge Studio logo" width={150} height={150} style={{ objectFit: 'contain' }} />
+        <img src={logoBase64} alt={`${SITE_CONFIG.name} logo`} width={150} height={150} style={{ objectFit: 'contain' }} />
       </div>
     ),
     { ...size }

@@ -11,11 +11,12 @@ import {
   PageHero,
   SectionHeading,
 } from '@/components/marketing'
+import { SITE_CONFIG } from '@/lib/config'
 import { engagementModels, services } from '@/lib/site-data'
 
 export const metadata: Metadata = {
   title: 'Services',
-  description: 'Web, mobile, AI, backend, automation, infrastructure, maintenance, and consulting services for businesses that need a development partner.',
+  description: `${SITE_CONFIG.name} provides global web, mobile, AI, backend, automation, cloud infrastructure, maintenance, and consulting services for businesses that need a development partner.`,
 }
 
 export default function ServicesPage() {
@@ -23,8 +24,8 @@ export default function ServicesPage() {
     <>
       <PageHero
         eyebrow="Services"
-        title="Flexible software delivery models for product, AI, and operations work."
-        description="Start with discovery, move into a focused build, add AI or automation, or retain a team for ongoing product delivery. Each model is designed to make scope, timeline, risk, and ownership clear."
+        title="Flexible global delivery models for software, AI, cloud, and operations work."
+        description="Start with discovery, move into a focused build, add AI or automation, or retain a team for ongoing product delivery. Each model is designed to make scope, timeline, risk, ownership, and launch readiness clear."
         compact
         imageSrc="/images/projects/vps-hosting.jpg"
         actions={
@@ -43,7 +44,7 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Engagement models"
           title="How clients typically work with us."
-          description="Professional service platforms should make buying paths clear. These models help you choose the right starting point before we prepare a tailored estimate."
+          description="These models help you choose the right starting point before we prepare a tailored estimate for your product, market, timeline, and operating needs."
         />
         <EngagementModelCards models={engagementModels} />
       </ContentSection>
@@ -51,8 +52,8 @@ export default function ServicesPage() {
       <ContentSection className="pt-0">
         <SectionHeading
           eyebrow="Capabilities"
-          title="Service capabilities that can combine into one delivery plan."
-          description="Each service can stand alone or combine into a full product engagement covering planning, design, implementation, deployment, and maintenance."
+          title="Service capabilities that combine into one global delivery plan."
+          description="Each service can stand alone or combine into a full product engagement covering planning, design, implementation, deployment, technical SEO, analytics, and maintenance."
         />
         <div className="grid gap-6 lg:grid-cols-2">
           {services.map((service) => (
@@ -86,7 +87,7 @@ export default function ServicesPage() {
 
       <CTASection
         title="Need help choosing the right service?"
-        description="Send a short project description and we will recommend whether you need discovery, a focused build, ongoing support, or a phased roadmap."
+        description="Send a short project description and we will recommend whether you need discovery, a focused build, AI automation, ongoing support, or a phased global roadmap."
       />
     </>
   )

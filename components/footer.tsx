@@ -22,7 +22,7 @@ export function Footer() {
               <span className="font-semibold text-foreground">{SITE_CONFIG.name}</span>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-6 text-foreground/60">
-              A software development team helping clients plan, design, build, launch, and maintain practical digital products.
+              {SITE_CONFIG.shortDescription}
             </p>
             <div className="mt-5 flex items-center gap-3">
               <a href={SITE_CONFIG.github} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg text-foreground/50 hover:text-foreground hover:bg-primary/10 border border-transparent hover:border-primary/20 transition-all" aria-label="GitHub">

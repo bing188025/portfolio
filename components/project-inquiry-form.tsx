@@ -85,7 +85,7 @@ export function ProjectInquiryForm({ compact = false }: { compact?: boolean }) {
         <CheckCircle2 className="mx-auto size-14 text-green-400" />
         <h2 className="mt-5 text-2xl font-semibold text-foreground">Request received</h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted-foreground">
-          Thank you for contacting DevForge Studio. Our team will review your request and respond within one business day with recommended next steps.
+          Thank you for contacting {SITE_CONFIG.name}. Our team will review your request and respond within one business day with recommended next steps.
         </p>
       </div>
     )
@@ -223,7 +223,7 @@ export function ProjectInquiryForm({ compact = false }: { compact?: boolean }) {
         <label className="flex items-start gap-3 rounded-xl border border-border/60 bg-background/45 p-4 text-sm leading-6 text-muted-foreground">
           <Checkbox checked={consent} onCheckedChange={(checked) => setConsent(checked === true)} className="mt-1" />
           <span>
-            I agree that DevForge Studio may contact me about this project request. I understand this form does not create a service agreement.
+            I agree that {SITE_CONFIG.name} may contact me about this project request. I understand this form does not create a service agreement.
           </span>
         </label>
         <FieldError message={errors.consent} />

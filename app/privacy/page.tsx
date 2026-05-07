@@ -13,7 +13,7 @@ export default function PrivacyPage() {
   return (
     <LegalDocument
       title="Privacy Policy"
-      description="This Privacy Policy explains how DevForge Studio collects, uses, and protects information submitted through this website and project inquiry forms."
+      description={`This Privacy Policy explains how ${SITE_CONFIG.name} collects, uses, and protects information submitted through this website and project inquiry forms.`}
       sections={[
         {
           title: 'Overview',
